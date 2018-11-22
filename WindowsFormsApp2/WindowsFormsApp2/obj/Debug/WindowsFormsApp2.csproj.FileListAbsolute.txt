@@ -1,0 +1,55 @@
+C:\Users\ALEX\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\Users\ALEX\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\Users\ALEX\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+C:\Users\ALEX\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
+C:\Users\ALEX\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form1.resources
+C:\Users\ALEX\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\ALEX\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+C:\Users\ALEX\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+C:\Users\ALEX\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+C:\Users\ALEX\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\ALEX-LAPTOP\Desktop\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\Users\ALEX-LAPTOP\Desktop\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\Users\ALEX-LAPTOP\Desktop\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+C:\Users\ALEX-LAPTOP\Desktop\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
+C:\Users\ALEX-LAPTOP\Desktop\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form1.resources
+C:\Users\ALEX-LAPTOP\Desktop\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\ALEX-LAPTOP\Desktop\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+C:\Users\ALEX-LAPTOP\Desktop\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+C:\Users\ALEX-LAPTOP\Desktop\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+C:\Users\ALEX-LAPTOP\Desktop\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+D:\Zona Downloads\Загрузки\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
+D:\Zona Downloads\Загрузки\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form1.resources
+D:\Zona Downloads\Загрузки\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+D:\Zona Downloads\Загрузки\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+D:\Zona Downloads\Загрузки\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+D:\Zona Downloads\Загрузки\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+D:\Zona Downloads\Загрузки\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+D:\Zona Downloads\Загрузки\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+D:\Zona Downloads\Загрузки\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+D:\Zona Downloads\Загрузки\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form1.resources
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\ALEX-LAPTOP\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\Users\ALEX-LAPTOP\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\Users\ALEX-LAPTOP\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+C:\Users\ALEX-LAPTOP\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form1.resources
+C:\Users\ALEX-LAPTOP\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\ALEX-LAPTOP\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+C:\Users\ALEX-LAPTOP\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+C:\Users\ALEX-LAPTOP\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+C:\Users\ALEX-LAPTOP\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\ALEX-LAPTOP\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form2.resources
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\MetroFramework.Design.dll
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\MetroFramework.dll
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\MetroFramework.Fonts.dll
+D:\Институт, work и др\YandexDisk\Education\3 Методы распознавания\Лаболаторные работы\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CopyComplete
