@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,6 +43,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.listView3 = new System.Windows.Forms.ListView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -77,7 +84,6 @@
             this.label1.Size = new System.Drawing.Size(147, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Исследуемое изображение";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox2
             // 
@@ -96,7 +102,6 @@
             this.label2.Size = new System.Drawing.Size(199, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Выбранный фрагмент (До обработки)";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // pictureBox3
             // 
@@ -119,7 +124,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(692, 211);
+            this.pictureBox4.Location = new System.Drawing.Point(692, 204);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(292, 150);
             this.pictureBox4.TabIndex = 7;
@@ -128,7 +133,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(801, 195);
+            this.label4.Location = new System.Drawing.Point(801, 188);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 8;
@@ -137,7 +142,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Location = new System.Drawing.Point(1042, 211);
+            this.pictureBox5.Location = new System.Drawing.Point(1042, 204);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(293, 150);
             this.pictureBox5.TabIndex = 9;
@@ -146,7 +151,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1143, 195);
+            this.label5.Location = new System.Drawing.Point(1149, 188);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 10;
@@ -180,11 +185,73 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Гистограмма (Оригинал)";
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(358, 120);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(255, 299);
+            this.listView1.TabIndex = 15;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(409, 104);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(161, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Характеристики изображения";
+            // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(692, 372);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(292, 133);
+            this.listView2.TabIndex = 17;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.List;
+            // 
+            // listView3
+            // 
+            this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem2});
+            this.listView3.Location = new System.Drawing.Point(1042, 372);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(293, 133);
+            this.listView3.TabIndex = 18;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.listView3.View = System.Windows.Forms.View.List;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(759, 357);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(161, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Характеристики изображения";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1110, 357);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(161, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Характеристики изображения";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1360, 692);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.listView3);
+            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.button2);
@@ -201,7 +268,6 @@
             this.Controls.Add(this.button1);
             this.Name = "Form2";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -229,5 +295,11 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

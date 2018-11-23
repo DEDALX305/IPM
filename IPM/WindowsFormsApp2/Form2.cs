@@ -23,8 +23,17 @@ namespace WindowsFormsApp2
         
 
 
-        class furie
+        public class DiscreteFourierTransform
         {
+
+            ListView list, list2, list3;
+
+            public DiscreteFourierTransform(ListView list, ListView list2, ListView list3)
+            {
+                this.list = list;
+                this.list2 = list2;
+                this.list3 = list3;
+            }
 
             public Bitmap funck1(Bitmap barChart)
             {
@@ -74,7 +83,7 @@ namespace WindowsFormsApp2
 
                 return barChart;
 
-            }
+            } //мусор
 
             public Bitmap testc(Bitmap TempBitmap)
             {
@@ -111,48 +120,13 @@ namespace WindowsFormsApp2
 
 
                 return outputBitmap;
-            }
+            } //мусор
 
             public Bitmap ImgIncr(Bitmap bit)
             {
                 Bitmap bitbox = new Bitmap(320, 10);
 
-                /*Rectangle rect = new Rectangle(0, 0, bit.Width, bit.Height);
-                System.Drawing.Imaging.BitmapData bmpData = bit.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite, bit.PixelFormat);
-                IntPtr ptr = bmpData.Scan0;
-                int bytes = bmpData.Stride * bit.Height;// общее количество пикселей в изображении
-
-                Rectangle rectPR = new Rectangle(0, 0, bitbox.Width, bitbox.Height);
-                System.Drawing.Imaging.BitmapData bmpDataPR = bitbox.LockBits(rectPR, System.Drawing.Imaging.ImageLockMode.ReadWrite, bitbox.PixelFormat);
-                IntPtr ptrPR = bmpDataPR.Scan0;
-                int bytesPR = bmpDataPR.Stride * bitbox.Height;// общее количество пикселей в изображении
-
-                byte[] grayValues = new byte[bytes];   // значение яркости в каждом пикселе
-                byte[] grayValuesPR = new byte[bytesPR];
-                int[] R = new int[256]; //
-
-                byte[] N = new byte[256];  //кривая отображения
-                byte[] left = new byte[256];
-                byte[] right = new byte[256];
-                System.Runtime.InteropServices.Marshal.Copy(ptr, grayValues, 0, bytes);  // записываем значения яркостей пикселей в grayValues 
-                System.Runtime.InteropServices.Marshal.Copy(ptrPR, grayValuesPR, 0, bytesPR);*/
-
-                /*Rectangle rect = new Rectangle(0, 0, bit.Width, bit.Height);
-                System.Drawing.Imaging.BitmapData bmpData = bit.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite, bit.PixelFormat);
-
-                Rectangle rect = new Rectangle(0, 0, bit.Width, bit.Height);
-                System.Drawing.Imaging.BitmapData bmpData = bit.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite, bit.PixelFormat);
-
-                IntPtr ptr = bmpData.Scan0;
-                int bytes = bit.Width * bit.Height;// общее количество пикселей в изображении
-                byte[] grayValues = new byte[bytes];   // значение яркости в каждом пикселе
-                byte[] grayValuesNew = new byte[bytes*10];
-
-                System.Runtime.InteropServices.Marshal.Copy(ptr, grayValues, 0, bytes);*/
-
                 int i, j = 0, l, m, k = 0;
-
-
 
                 for (i = 0; i < bit.Width; i++)
                 {
@@ -169,38 +143,24 @@ namespace WindowsFormsApp2
                     }
                 }
 
-                /*System.Runtime.InteropServices.Marshal.Copy(grayValuesPR, 0, ptrPR, bytesPR);
-                System.Runtime.InteropServices.Marshal.Copy(grayValues, 0, ptr, bytes);
-
-                bit.UnlockBits(bmpData);
-                bitbox.UnlockBits(bmpDataPR);*/
-
-                /*System.Runtime.InteropServices.Marshal.Copy(grayValues, 0, ptr, bytes);
-                bit.UnlockBits(bmpData);*/
-
                 return bitbox;
-            }
+            } // Преобразования изображения с 32 пикселями в 320 пикселей
 
             public Bitmap Bit32(Bitmap bmp)
             {
+
                 Bitmap bmp32 = new Bitmap(bmp);
-                Rectangle cropArea = new Rectangle(bmp.Width / 2, bmp.Height / 2, 32, 1);
+                Rectangle cropArea = new Rectangle(bmp.Width / 2, bmp.Height / 2, 32, 1);   
+                Bitmap bmp32out = bmp32.Clone(cropArea, bmp32.PixelFormat);
 
-                /*var bmp8bpp = Grayscale.CommonAlgorithms.BT709.Apply(bmp);
+                list2.Items.Clear(); // Костыль
+                list2.Items.Add("Высота: " + bmp32out.Height);
+                list2.Items.Add("Ширина: " + bmp32out.Width);
+                list2.Items.Add("Количество яркостей: " + infoImage(bmp32out));
 
-                Bitmap newbmp = new Bitmap(bmp32.Width, bmp32.Height, PixelFormat.Format8bppIndexed);
-                Graphics gr = Graphics.FromImage(newbmp);
-                gr.PageUnit = GraphicsUnit.Pixel;
-                gr.DrawImageUnscaled(bmp32, 0, 0);
+                return bmp32out;
 
-                ComplexImage complexImage1 = ComplexImage.FromBitmap(newbmp);
-                complexImage1.ForwardFourierTransform();
-                Bitmap fourierImage = complexImage1.ToBitmap();
-
-                return fourierImage;*/
-
-                return bmp32.Clone(cropArea, bmp32.PixelFormat);
-            }
+            } // Обрезка изоюбражения под 32 пикселя
 
             public Bitmap Fourier(Bitmap bmp)//обратное дискретное преобразование Фурье
             {
@@ -238,8 +198,6 @@ namespace WindowsFormsApp2
                     else
                         grayValuesFourbyt[k] = (byte)grayValuesFour[k];
                 }
-
-
 
                 //// Complex complex;
                 // Complex grayValuesCom;
@@ -287,10 +245,15 @@ namespace WindowsFormsApp2
                 System.Runtime.InteropServices.Marshal.Copy(grayValuesFourbyt, 0, ptr, bytes);
                 bmp.UnlockBits(bmpData);
 
+                list3.Items.Clear();
+                list3.Items.Add("Высота: " + bmp.Height);
+                list3.Items.Add("Ширина: " + bmp.Width);
+                list3.Items.Add("Количество яркостей: " + infoImage(bmp));
+
                 return bmp;
             }
 
-            public Bitmap FourierTransformnoise(Bitmap bmp)//обратное дискретное преобразование Фурье
+            public Bitmap FourierTransformnoise(Bitmap bmp)
             {
 
                 Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
@@ -377,98 +340,68 @@ namespace WindowsFormsApp2
                 _bmp = bmp;
                 return _bmp;
 
+            } //мусор
+
+            public int infoImage(Bitmap bmp) // Информация об изображении
+            {
+
+                Rectangle RectSource1 = new Rectangle(0, 0, bmp.Width, bmp.Height);
+                System.Drawing.Imaging.BitmapData bmpData = bmp.LockBits(RectSource1, System.Drawing.Imaging.ImageLockMode.ReadWrite, bmp.PixelFormat);
+                IntPtr Ptr = bmpData.Scan0;
+
+                int bytes = bmpData.Stride * bmp.Height;
+                byte[] grayValues = new byte[bytes];
+     
+                System.Runtime.InteropServices.Marshal.Copy(Ptr, grayValues, 0, bytes);
+
+                bmp.UnlockBits(bmpData);
+
+                return grayValues.Length;
             }
-
         }
-
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ////Bitmap bmpPR = new Bitmap(Bitmapfurie);
-            //Rectangle rect = new Rectangle(0, 0, Bitmapfurie.Width, Bitmapfurie.Height);
-            //System.Drawing.Imaging.BitmapData bmpData = Bitmapfurie.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
-            //    Bitmapfurie.PixelFormat);
-            //IntPtr ptr = bmpData.Scan0;
-            //int bytes = bmpData.Stride * Bitmapfurie.Height;// общее количество пикселей в изображении3
-            //int Width = bmpData.Stride;
-            //int Height = Bitmapfurie.Height;
-            //byte[] grayValues = new byte[bytes];   // значение яркости в каждом пикселе
-            //int end;
+            // Дискретное преобразование Фурье
 
-            //Bitmap bmp32 = new Bitmap(Bitmapfurie);
-            //
-            //Rectangle rectPR = new Rectangle(0, 0, 1, 32);
-            //
-            //Bitmapfurie.Clone(rectPR, Bitmapfurie.PixelFormat);
-
-            //Bitmapfurie.UnlockBits();
-
-            gistogram g = new gistogram();
-
-            //2 и 4 до обработки
-              //  3 и 5 после
-                //1 и 6 оригинал
-
-
-            
             pictureBox2.Image = null;
             pictureBox3.Image = null;
             pictureBox4.Image = null;
             pictureBox5.Image = null;
 
-            furie fu = new furie();
+            gistogram g = new gistogram();
+            DiscreteFourierTransform DFT = new DiscreteFourierTransform(listView1, listView2, listView3);
+            
+            Bitmap DFTBit32Bitmapfurie = DFT.Bit32(Bitmapfurie);
+            Bitmap DFTFourierDFTBit32Bitmapfurie = DFT.Fourier(DFT.Bit32(Bitmapfurie));
 
-            pictureBox2.Image = (Image)fu.ImgIncr(fu.Bit32(Bitmapfurie));
-            pictureBox4.Image = (Image)g.GistogramNew(fu.Bit32(Bitmapfurie));
+            pictureBox2.Image = (Image)DFT.ImgIncr(DFTBit32Bitmapfurie);
+            pictureBox3.Image = (Image)DFT.ImgIncr(DFTFourierDFTBit32Bitmapfurie);
+            pictureBox4.Image = (Image)g.GistogramNew(DFTBit32Bitmapfurie);
+            pictureBox5.Image = (Image)g.GistogramNew(DFTFourierDFTBit32Bitmapfurie);
 
-
-
-
-            pictureBox3.Image = (Image)fu.ImgIncr(fu.Fourier(fu.Bit32(Bitmapfurie)));
-            //furie f = new furie();
-            //pictureBox2.Image = (Image)f.funck1(Bitmapfurie);
-            //pictureBox2.Image = (Image)fu.testc(Bitmapfurie);;
-
-
-
-            //pictureBox4.Image = (Image)g.gistogramM(Fourier(Bit32(Bitmapfurie)));
-            pictureBox5.Image = (Image)g.GistogramNew(fu.Fourier(fu.Bit32(Bitmapfurie)));
-            //pictureBox4.Image = (Image)g.gistogramM(f.funck1(Bitmapfurie));
+            //pictureBox2.Image = (Image)DFT.ImgIncr(DFT.Bit32(Bitmapfurie));
+            //pictureBox3.Image = (Image)DFT.ImgIncr(DFT.Fourier(DFT.Bit32(Bitmapfurie)));
+            //pictureBox4.Image = (Image)g.GistogramNew(DFT.Bit32(Bitmapfurie));
+            //pictureBox5.Image = (Image)g.GistogramNew(DFT.Fourier(DFT.Bit32(Bitmapfurie)));
 
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Загурзить изображение
 
-            pictureBox1.Image = null;
-            pictureBox2.Image = null;
-            pictureBox3.Image = null;
-            pictureBox4.Image = null;
-            pictureBox5.Image = null;
-            pictureBox6.Image = null;
+            pictureBox1.Image = null; // оригинал
+            pictureBox2.Image = null; // до обработки
+            pictureBox3.Image = null; // после обработки
+            pictureBox4.Image = null; // до обработки
+            pictureBox5.Image = null; // после обработки
+            pictureBox6.Image = null; // оригинал
+
+            listView1.Items.Clear();
 
             using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
             {
@@ -485,15 +418,20 @@ namespace WindowsFormsApp2
                 }
             }
 
+            gistogram _gistogram = new gistogram();
+            DiscreteFourierTransform class_ = new DiscreteFourierTransform(listView1, listView2, listView3);
 
             pictureBox1.Image = (Image)Bitmapfurie;
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-
-            gistogram _gistogram = new gistogram();
-
-
             pictureBox6.Image = (Image)_gistogram.gistogramM(Bitmapfurie);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+
+            class_.infoImage(Bitmapfurie);
+
+            listView1.Items.Add("Высота: " + Bitmapfurie.Height);
+            listView1.Items.Add("Ширина: " + Bitmapfurie.Width);
+            listView1.Items.Add("Количество яркостей: " + class_.infoImage(Bitmapfurie));
+
         }
     }
 }
