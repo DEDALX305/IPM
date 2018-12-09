@@ -130,7 +130,7 @@ namespace WindowsFormsApp2
                     barChart.SetPixel(i, j, Color.Blue);
                 }
             }
-            int pi = 5;
+            
 
             return barChart;
 

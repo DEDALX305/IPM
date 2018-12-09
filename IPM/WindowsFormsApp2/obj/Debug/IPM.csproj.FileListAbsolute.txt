@@ -1,3 +1,18 @@
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\bin\Debug\MetroFramework.Design.dll
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\bin\Debug\MetroFramework.dll
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\obj\Debug\IPM.csprojAssemblyReference.cache
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form1.resources
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form2.resources
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\obj\Debug\IPM.csproj.GenerateResource.cache
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\obj\Debug\IPM.csproj.CoreCompileInputs.cache
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\obj\Debug\IPM.csproj.CopyComplete
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+C:\Users\ALEX-LAPTOP\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
 D:\Институт, work и др\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
 D:\Институт, work и др\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
 D:\Институт, work и др\YandexDisk\Projects\GitHubRepository\Image-processing-methods\IPM\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb

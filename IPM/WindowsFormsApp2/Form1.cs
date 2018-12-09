@@ -272,7 +272,6 @@ namespace WindowsFormsApp2
             // Бинаризация
 
             pictureBox2.Image = null;
-
             pictureBox4.Image = null;
 
             binarization binar = new binarization();
@@ -283,8 +282,6 @@ namespace WindowsFormsApp2
 
             pictureBox4.Image = (Image)g.gistogramM(binar.transformation(BitmapBinarization));
 
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
 
         } // Бинаризация
 
@@ -295,22 +292,16 @@ namespace WindowsFormsApp2
             Bitmap _smoothing2picture = null;
 
             pictureBox2.Image = null;
-            
             pictureBox4.Image = null;
 
-            
             smoothing _smoothing = new smoothing();
             gistogram _gistogram = new gistogram();
 
             _smoothing2picture = _smoothing.transformation(BitmapSmoothing);
 
             pictureBox2.Image = (Image)_smoothing2picture;
-            
             pictureBox4.Image = (Image)_gistogram.gistogramM(_smoothing2picture);
 
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
         } // Сглаживание
 
         private void button3_Click(object sender, EventArgs e)
@@ -336,19 +327,13 @@ namespace WindowsFormsApp2
                     BitmapEcvalize = new Bitmap(openFileDialog1.FileName);
                     BitmapBinarization = new Bitmap(openFileDialog1.FileName);
                     BitmapSmoothing = new Bitmap(openFileDialog1.FileName);
-                    //Bitmapfurie = new Bitmap(openFileDialog1.FileName);
                 }
             }
 
-
-            pictureBox1.Image = (Image)BitmapPicture1;
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-
             gistogram _gistogram = new gistogram();
 
-
+            pictureBox1.Image = (Image)BitmapPicture1;
             pictureBox3.Image = (Image)_gistogram.gistogramM(BitmapPicture1);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
 
         } // Загурзить изображение
 
@@ -357,7 +342,6 @@ namespace WindowsFormsApp2
             // Приведение
            
             pictureBox2.Image = null;
-            
             pictureBox4.Image = null;
             
             cast _cast = new cast();
@@ -379,14 +363,9 @@ namespace WindowsFormsApp2
                 }
             }
 
-
-            pictureBox2.Image = (Image)_cast.transformation(BitmapPicture1, BitmapCast);
-            
+            pictureBox2.Image = (Image)_cast.transformation(BitmapPicture1, BitmapCast);      
             pictureBox4.Image = (Image)_gistogram.gistogramM(_cast.transformation(BitmapPicture1, BitmapCast));
-       
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+
         } // Приведение
 
         private void button5_Click(object sender, EventArgs e)
@@ -406,14 +385,9 @@ namespace WindowsFormsApp2
 
             Bitmap gistogram2 = _gistogram.gistogramM(_equalizationBitmap);
 
-
             pictureBox2.Image = (Image)_equalizationBitmap;
-
             pictureBox4.Image = (Image)gistogram2;
 
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
         } // Эквализация
 
         private void button6_Click(object sender, EventArgs e)
@@ -424,5 +398,10 @@ namespace WindowsFormsApp2
             f2.ShowDialog();
 
         } // Фурье
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

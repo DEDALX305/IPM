@@ -14,14 +14,13 @@ namespace WindowsFormsApp2
     public partial class Form2 : Form
     {
         public static Bitmap Bitmapfurie;
-
+    
 
         public Form2()
         {
             InitializeComponent();
         }
         
-
 
         public class DiscreteFourierTransform
         {
@@ -35,92 +34,45 @@ namespace WindowsFormsApp2
                 this.list3 = list3;
             }
 
-            public Bitmap funck1(Bitmap barChart)
+            public Bitmap gpaphicLight(Bitmap image)
             {
 
-
-
-                Rectangle rect = new Rectangle(0, 0, barChart.Width, barChart.Height);
-                System.Drawing.Imaging.BitmapData bmpData = barChart.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite, barChart.PixelFormat);
-                IntPtr ptr = bmpData.Scan0;
-                int bytes = barChart.Width * barChart.Height;// общее количество пикселей в изображении
-                byte[] grayValues = new byte[bytes];   // значение яркости в каждом пикселе
-                int[] R = new int[256]; //
-                byte[] N = new byte[256];
-                byte[] left = new byte[256];
-                byte[] right = new byte[256];
-                int Width = bmpData.Stride;
-                int Height = barChart.Height;
-                System.Runtime.InteropServices.Marshal.Copy(ptr, grayValues, 0, bytes);
-
-                double[] grayValuesFourD = new double[bytes];
-                double[] grayValuesFourM = new double[bytes];
-                double[] grayValuesFour = new double[bytes];
-                byte[] grayValuesFourbyt = new byte[bytes];
-
-                for (int k = 0; k < 32; k++)
+                Bitmap barChart = null;
+                if (image != null)
                 {
-                    for (int n = 0; n < 32; n++)
+                    int width = 768, height = 464;
+                    //int width = 410, height = 268;
+                    Bitmap bmpG = new Bitmap(image);
+                    barChart = new Bitmap(width, height);
+                 
+
+                    Color cColor;
+                    int[] iColor = new int[32];
+
+                    for (int i = 0; i < bmpG.Width; i++)
+                        for (int j = 0; j < bmpG.Height; j++)
+                        {
+                            cColor = bmpG.GetPixel(i, j);
+                            iColor[i] = (cColor.R + cColor.G + cColor.B) / 3;
+                        }
+
+                    for (int i = 0; i < 640; i += 20)
                     {
-                        grayValuesFourD[k] += grayValues[n] * (Math.Cos(Math.PI * 2 * k * n / 32));
-                        grayValuesFourM[k] += grayValues[n] * (Math.Sin(Math.PI * 2 * k * n / 32));
-
+                        for (int j = height - 1; j > height - iColor[i / 20]; --j)
+                            for (int m = 0; m < 10; m++)
+                                barChart.SetPixel(i + m, j, Color.Black);
+                        for (int j = 0; j < height; j++)
+                            for (int m = 1; m < 10; m++)
+                                barChart.SetPixel(i + 10 + m, j, Color.White);
                     }
-                    grayValuesFour[k] = Math.Sqrt(grayValuesFourD[k] * grayValuesFourD[k] + grayValuesFourM[k] * grayValuesFourM[k]);
-                    grayValuesFour[k] = (int)grayValuesFour[k];
-                    if (grayValuesFour[k] > 255)
-                        grayValuesFourbyt[k] = 255;
-                    else
-                        grayValuesFourbyt[k] = (byte)grayValuesFour[k];
+                   
                 }
-
-
-
-
-                System.Runtime.InteropServices.Marshal.Copy(ptr, grayValues, 0, bytes);
-                barChart.UnlockBits(bmpData);
-
+                else
+                    barChart = new Bitmap(1, 1);
 
                 return barChart;
 
-            } //мусор
-
-            public Bitmap testc(Bitmap TempBitmap)
-            {
-                Rectangle rect = new Rectangle(0, 0, TempBitmap.Width, TempBitmap.Height);
-                System.Drawing.Imaging.BitmapData bmpData = TempBitmap.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
-                    TempBitmap.PixelFormat);
-                IntPtr ptr = bmpData.Scan0;
-
-                int bytes = bmpData.Stride * TempBitmap.Height;
-                int Width = bmpData.Stride;
-                byte[] grayValues = new byte[bytes];
-                byte[] NewgrayValues = new byte[bytes];
-                int end;
-
-                byte[] buf = new byte[32];
-
-                System.Runtime.InteropServices.Marshal.Copy(ptr, grayValues, 0, bytes);
-
-                for (int i = 0; i < 32; i++)
-                {
-
-                    buf[i] = grayValues[i];
-                }
-
-                System.Runtime.InteropServices.Marshal.Copy(grayValues, 0, ptr, bytes);
-
-                Bitmap outputBitmap = null;
-
-                TempBitmap.UnlockBits(bmpData);
-
-                outputBitmap = funck1(TempBitmap);
-
-
-
-
-                return outputBitmap;
-            } //мусор
+            } // График яркостей пикселей
 
             public Bitmap ImgIncr(Bitmap bit)
             {
@@ -162,85 +114,54 @@ namespace WindowsFormsApp2
 
             } // Обрезка изоюбражения под 32 пикселя
 
-            public Bitmap Fourier(Bitmap bmp)//обратное дискретное преобразование Фурье
+            public Bitmap Fourier(Bitmap image)//обратное дискретное преобразование Фурье
             {
 
+                Bitmap bmp = new Bitmap(image);
                 Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
                 System.Drawing.Imaging.BitmapData bmpData = bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite, bmp.PixelFormat);
                 IntPtr ptr = bmpData.Scan0;
-                int bytes = bmp.Width * bmp.Height;// общее количество пикселей в изображении
-                byte[] grayValues = new byte[bytes];   // значение яркости в каждом пикселе
-                int[] R = new int[256]; //
+                
+                
+                int[] R = new int[256]; 
                 byte[] N = new byte[256];
                 byte[] left = new byte[256];
                 byte[] right = new byte[256];
-                int Width = bmpData.Stride;
-                int Height = bmp.Height;
-                System.Runtime.InteropServices.Marshal.Copy(ptr, grayValues, 0, bytes);
+
+                int width = Math.Abs(bmpData.Stride);
+                int bytes = width * bmp.Height; // общее количество пикселей в изображении
+                byte[] grayValues = new byte[bytes];   // значение яркости в каждом пикселе
+              
 
                 double[] grayValuesFourD = new double[bytes];
                 double[] grayValuesFourM = new double[bytes];
                 double[] grayValuesFour = new double[bytes];
                 byte[] grayValuesFourbyt = new byte[bytes];
 
-                for (int k = 0; k < 32; k++)
+                System.Runtime.InteropServices.Marshal.Copy(ptr, grayValues, 0, bytes);
+           
+                for (int k = 0; k < bytes; k += 4)
                 {
-                    for (int n = 0; n < 32; n++)
+                    for (int n = 0; n < bytes; n += 4)
                     {
-                        grayValuesFourD[k] += grayValues[n] * (Math.Cos(Math.PI * 2 * k * n / 32));
-                        grayValuesFourM[k] += grayValues[n] * (Math.Sin(Math.PI * 2 * k * n / 32));
-
+                        grayValuesFourD[k] += grayValues[n] * Math.Pow(-1, n / 4) * (Math.Cos(Math.PI * 2 * k / 4 * n / 4 / 32));
+                        grayValuesFourM[k] += grayValues[n] * Math.Pow(-1, n / 4) * (Math.Sin(Math.PI * 2 * k / 4 * n / 4 / 32));
                     }
                     grayValuesFour[k] = Math.Sqrt(grayValuesFourD[k] * grayValuesFourD[k] + grayValuesFourM[k] * grayValuesFourM[k]);
-                    grayValuesFour[k] = (int)grayValuesFour[k];
+                    // grayValuesFour[k] = (int)grayValuesFour[k];
                     if (grayValuesFour[k] > 255)
-                        grayValuesFourbyt[k] = 255;
+                        grayValuesFourbyt[k] = 254;  //если 255, то на гистограмме не видно
                     else
                         grayValuesFourbyt[k] = (byte)grayValuesFour[k];
+
+                    grayValuesFourbyt[k + 3] = 255;
+
+                    for (int v = k + 1; v < k + 3; v += 1)
+                    {
+                        grayValuesFourbyt[v] = grayValuesFourbyt[k];
+                    }
                 }
 
-                //// Complex complex;
-                // Complex grayValuesCom;
-                // Complex grayValuesFourCom;
-                // for (int k =0; k<32;k++)
-                // {
-                //     for (int n = 0; n< 32; n++)
-                //     {
-                //         grayValuesCom = new Complex(grayValues[n], 0);
-                //         grayValuesFourCom=new Complex(grayValuesFour[k], 0);
-                //         complex = new Complex(-2 * Math.PI * k * n / 32, 0);
-
-                //         grayValuesFourCom = grayValuesCom *complex;
-
-                //         //вывести на экран модуль (квадрат действит+ квадрат мнимой и корень из этого)
-                //     }
-                // }
-
-                //List<byte> listNoise=new List<byte>();
-                //List<double> listSSHF = new List<double>();
-                //for (int k = 0; k < 32; k++)
-                //{
-                //    listNoise.Add(grayValues[k]);
-                //}
-
-
-                //    Complex ImOne = new Complex(0, 1);
-                //Complex complex;
-                //Complex sum;
-                //Complex sk;
-                //for (int n = 0; n <32; n++)
-                //{
-                //    sum = new Complex(0, 0);
-                //    for (int k = 0; k < 32; k++)
-                //    {
-                //        sk = new Complex(listNoise[k], 0);
-                //        complex = new Complex(-2 * Math.PI * k * n / 32, 0);
-                //        complex = Complex.Multiply(ImOne, complex);
-                //        complex = Complex.Exp(complex);
-                //        complex = Complex.Multiply(sk, complex);
-                //        sum = Complex.Add(sum, complex);
-                //    }
-                //    listSSHF.Add(Complex.Abs(sum));
 
                 System.Runtime.InteropServices.Marshal.Copy(grayValuesFourbyt, 0, ptr, bytes);
                 bmp.UnlockBits(bmpData);
@@ -251,96 +172,7 @@ namespace WindowsFormsApp2
                 list3.Items.Add("Количество яркостей: " + infoImage(bmp));
 
                 return bmp;
-            }
-
-            public Bitmap FourierTransformnoise(Bitmap bmp)
-            {
-
-                Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
-                System.Drawing.Imaging.BitmapData bmpData = bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite, bmp.PixelFormat);
-                IntPtr ptr = bmpData.Scan0;
-                int bytes = bmp.Width * bmp.Height;// общее количество пикселей в изображении
-                byte[] grayValues = new byte[bytes];   // значение яркости в каждом пикселе
-                int[] R = new int[256]; //
-                byte[] N = new byte[256];
-                byte[] left = new byte[256];
-                byte[] right = new byte[256];
-                int Width = bmpData.Stride;
-                int Height = bmp.Height;
-                System.Runtime.InteropServices.Marshal.Copy(ptr, grayValues, 0, bytes);
-
-                double[] grayValuesFourD = new double[bytes];
-                double[] grayValuesFourM = new double[bytes];
-                double[] grayValuesFour = new double[bytes];
-                byte[] grayValuesFourbyt = new byte[bytes];
-
-                for (int k = 0; k < 32; k++)
-                {
-                    for (int n = 0; n < 32; n++)
-                    {
-                        grayValuesFourD[k] += grayValues[n] * (Math.Cos(Math.PI * 2 * k * n / 32));
-                        grayValuesFourM[k] += grayValues[n] * (Math.Sin(Math.PI * 2 * k * n / 32));
-
-                    }
-                    grayValuesFour[k] = Math.Sqrt(grayValuesFourD[k] * grayValuesFourD[k] + grayValuesFourM[k] * grayValuesFourM[k]);
-                    grayValuesFour[k] = (int)grayValuesFour[k];
-                    if (grayValuesFour[k] > 255)
-                        grayValuesFourbyt[k] = 255;
-                    else
-                        grayValuesFourbyt[k] = (byte)grayValuesFour[k];
-                }
-
-
-
-                //// Complex complex;
-                // Complex grayValuesCom;
-                // Complex grayValuesFourCom;
-                // for (int k =0; k<32;k++)
-                // {
-                //     for (int n = 0; n< 32; n++)
-                //     {
-                //         grayValuesCom = new Complex(grayValues[n], 0);
-                //         grayValuesFourCom=new Complex(grayValuesFour[k], 0);
-                //         complex = new Complex(-2 * Math.PI * k * n / 32, 0);
-
-                //         grayValuesFourCom = grayValuesCom *complex;
-
-                //         //вывести на экран модуль (квадрат действит+ квадрат мнимой и корень из этого)
-                //     }
-                // }
-
-                //List<byte> listNoise=new List<byte>();
-                //List<double> listSSHF = new List<double>();
-                //for (int k = 0; k < 32; k++)
-                //{
-                //    listNoise.Add(grayValues[k]);
-                //}
-
-
-                //    Complex ImOne = new Complex(0, 1);
-                //Complex complex;
-                //Complex sum;
-                //Complex sk;
-                //for (int n = 0; n <32; n++)
-                //{
-                //    sum = new Complex(0, 0);
-                //    for (int k = 0; k < 32; k++)
-                //    {
-                //        sk = new Complex(listNoise[k], 0);
-                //        complex = new Complex(-2 * Math.PI * k * n / 32, 0);
-                //        complex = Complex.Multiply(ImOne, complex);
-                //        complex = Complex.Exp(complex);
-                //        complex = Complex.Multiply(sk, complex);
-                //        sum = Complex.Add(sum, complex);
-                //    }
-                //    listSSHF.Add(Complex.Abs(sum));
-                Bitmap _bmp;
-                bmp.UnlockBits(bmpData);
-                System.Runtime.InteropServices.Marshal.Copy(grayValuesFourbyt, 0, ptr, bytes);
-                _bmp = bmp;
-                return _bmp;
-
-            } //мусор
+            }     
 
             public int infoImage(Bitmap bmp) // Информация об изображении
             {
@@ -366,8 +198,8 @@ namespace WindowsFormsApp2
 
             pictureBox2.Image = null;
             pictureBox3.Image = null;
-            pictureBox4.Image = null;
-            pictureBox5.Image = null;
+            pictureBox7.Image = null;
+            pictureBox8.Image = null;
 
             gistogram g = new gistogram();
             DiscreteFourierTransform DFT = new DiscreteFourierTransform(listView1, listView2, listView3);
@@ -377,29 +209,21 @@ namespace WindowsFormsApp2
 
             pictureBox2.Image = (Image)DFT.ImgIncr(DFTBit32Bitmapfurie);
             pictureBox3.Image = (Image)DFT.ImgIncr(DFTFourierDFTBit32Bitmapfurie);
-            pictureBox4.Image = (Image)g.GistogramNew(DFTBit32Bitmapfurie);
-            pictureBox5.Image = (Image)g.GistogramNew(DFTFourierDFTBit32Bitmapfurie);
+            pictureBox7.Image = (Image)DFT.gpaphicLight(DFTBit32Bitmapfurie);
+            pictureBox8.Image = (Image)DFT.gpaphicLight(DFTFourierDFTBit32Bitmapfurie);
 
-            //pictureBox2.Image = (Image)DFT.ImgIncr(DFT.Bit32(Bitmapfurie));
-            //pictureBox3.Image = (Image)DFT.ImgIncr(DFT.Fourier(DFT.Bit32(Bitmapfurie)));
-            //pictureBox4.Image = (Image)g.GistogramNew(DFT.Bit32(Bitmapfurie));
-            //pictureBox5.Image = (Image)g.GistogramNew(DFT.Fourier(DFT.Bit32(Bitmapfurie)));
-
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Загрузка изображения
 
             pictureBox1.Image = null; // оригинал
             pictureBox2.Image = null; // до обработки
             pictureBox3.Image = null; // после обработки
-            pictureBox4.Image = null; // до обработки
-            pictureBox5.Image = null; // после обработки
             pictureBox6.Image = null; // оригинал
+            pictureBox7.Image = null; // график яркостей до обработки
+            pictureBox8.Image = null; // график яркостей после обработки
 
             listView1.Items.Clear();
 
@@ -423,8 +247,6 @@ namespace WindowsFormsApp2
 
             pictureBox1.Image = (Image)Bitmapfurie;
             pictureBox6.Image = (Image)_gistogram.gistogramM(Bitmapfurie);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
 
             class_.infoImage(Bitmapfurie);
 
