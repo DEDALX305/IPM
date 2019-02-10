@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace WindowsFormsApp2
 {
     public partial class Form1 : Form //MetroFramework.Forms.MetroForm
@@ -19,15 +21,15 @@ namespace WindowsFormsApp2
         public static Bitmap BitmapCast;
         public static Bitmap BitmapSmoothing;
 
+
         public Form1()
         {
             InitializeComponent();
         }
 
         
-
         class equalization
-        {
+        { // Эквализация
 
             private Bitmap transformation(Bitmap TempBitap)
             {
@@ -104,10 +106,10 @@ namespace WindowsFormsApp2
             {
 
             }
-        }
+        } // Эквализация
 
         class binarization
-        {
+        { // Бинаризация
             public Bitmap transformation(Bitmap BitBin)
             {
                 System.Drawing.Imaging.BitmapData data = BitBin.LockBits(new Rectangle(0, 0, BitBin.Width, BitBin.Height), System.Drawing.Imaging.ImageLockMode.WriteOnly, BitBin.PixelFormat);
@@ -134,10 +136,10 @@ namespace WindowsFormsApp2
             {
 
             }
-        }
+        } // Бинаризация
 
         class cast
-        {
+        { // Приведение
             public Bitmap transformation(Bitmap source, Bitmap target)
             {
 
@@ -208,10 +210,10 @@ namespace WindowsFormsApp2
 
             }
 
-        }
+        } // Приведение
 
         class smoothing
-        {
+        { // Сглаживание
             public Bitmap transformation(Bitmap TempBitmap)
             {
                 Rectangle rect = new Rectangle(0, 0, TempBitmap.Width, TempBitmap.Height);
@@ -264,12 +266,11 @@ namespace WindowsFormsApp2
             {
 
             }
-        }
+        } // Сглаживание
 
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            // Бинаризация
+        { // Бинаризация
 
             pictureBox2.Image = null;
             pictureBox4.Image = null;
@@ -286,8 +287,7 @@ namespace WindowsFormsApp2
         } // Бинаризация
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            // Сглаживание
+        { // Сглаживание
 
             Bitmap _smoothing2picture = null;
 
@@ -305,8 +305,7 @@ namespace WindowsFormsApp2
         } // Сглаживание
 
         private void button3_Click(object sender, EventArgs e)
-        {
-            // Загурзить изображение
+        { // Загурзить изображение
 
             pictureBox1.Image = null;
             pictureBox2.Image = null;
@@ -338,9 +337,8 @@ namespace WindowsFormsApp2
         } // Загурзить изображение
 
         private void button4_Click(object sender, EventArgs e)
-        {
-            // Приведение
-           
+        { // Приведение
+
             pictureBox2.Image = null;
             pictureBox4.Image = null;
             
@@ -369,8 +367,8 @@ namespace WindowsFormsApp2
         } // Приведение
 
         private void button5_Click(object sender, EventArgs e)
-        {
-            //Эквализация
+        { //Эквализация
+
 
             Bitmap _equalizationBitmap;
 
@@ -391,17 +389,19 @@ namespace WindowsFormsApp2
         } // Эквализация
 
         private void button6_Click(object sender, EventArgs e)
-        {
-            // Фурье - открытие новой формы
+        { // Дискретное преобразование фурье - открытие новой формы
 
             Form2 f2 = new Form2();
             f2.ShowDialog();
 
-        } // Фурье
+        } // Дискретное преобразование фурье
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+        private void button7_Click(object sender, EventArgs e)
+        { // Двумерное преообразование фурье - открытие новой формы
 
-        }
+            Form3 f3 = new Form3();
+            f3.ShowDialog();
+
+        } // Двумерное преообразование фурье
     }
 }
