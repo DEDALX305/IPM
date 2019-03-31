@@ -64,7 +64,7 @@ namespace IMPSpace
         private void button1_Click(object sender, EventArgs e)
         { // Бинаризация
 
-            pictureBox1.Image = null;
+           
             pictureBox2.Image = null;
 
             binarization binar = new binarization();
