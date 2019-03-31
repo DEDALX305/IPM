@@ -133,6 +133,7 @@
             this.Controls.Add(this.button2);
             this.Name = "Form3";
             this.Text = "Двумерное преобразование";
+            this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

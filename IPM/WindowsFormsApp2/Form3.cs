@@ -338,5 +338,10 @@ namespace WindowsFormsApp2
             pictureBox3.Image = (Image)TDFTFourierBackward;
 
         } // Двумерное и обратное преообразование
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

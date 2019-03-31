@@ -1413,5 +1413,10 @@ namespace WindowsFormsApp2
             pictureBox2.Image = (Image)DFT.ImgIncr32x32(DFTBit32Bitmapfurie);
             pictureBox3.Image = (Image)DFT.ImgIncr32x32(DFTFourierDFTBit32Bitmapfurie);
         } // Двумерное преообразование 32x32
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

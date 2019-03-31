@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using IMPSpace;
 
 namespace WindowsFormsApp2
 {
@@ -403,5 +402,16 @@ namespace WindowsFormsApp2
             f3.ShowDialog();
 
         } // Двумерное преообразование фурье
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        { //
+            Form4 f4 = new Form4();
+            f4.ShowDialog();
+        } //
     }
 }
