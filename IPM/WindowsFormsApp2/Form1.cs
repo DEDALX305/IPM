@@ -409,7 +409,7 @@ namespace WindowsFormsApp2
         }
 
         private void button8_Click(object sender, EventArgs e)
-        { //
+        { // Скелетизация
             Form4 f4 = new Form4();
             f4.ShowDialog();
         } //
