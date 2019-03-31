@@ -71,8 +71,6 @@ namespace IMPSpace
 
             pictureBox2.Image = (Image)binar.transformation(BitmapBinarization);
 
-           
-
         } // Бинаризация
 
         private void button2_Click(object sender, EventArgs e)
