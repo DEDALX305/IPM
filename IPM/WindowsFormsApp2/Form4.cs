@@ -31,6 +31,163 @@ namespace IMPSpace
 
         }
 
+        class smoothing
+        { // 
+            public Bitmap transformation(Bitmap TempBitmap)
+            {
+                Rectangle rect = new Rectangle(0, 0, TempBitmap.Width, TempBitmap.Height);
+                System.Drawing.Imaging.BitmapData bmpData = TempBitmap.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite, TempBitmap.PixelFormat);
+                IntPtr ptr = bmpData.Scan0;
+
+                int bytes = bmpData.Stride * TempBitmap.Height;
+                int Width = bmpData.Stride;
+                byte[] grayValues = new byte[bytes];
+                byte[] NewgrayValues1 = new byte[bytes];
+                byte[] NewgrayValues2 = new byte[bytes];
+                int end;
+
+                System.Runtime.InteropServices.Marshal.Copy(ptr, grayValues, 0, bytes);
+
+                //for (int i = 1; i < Width; i++)
+                //{
+                //    NewgrayValues[i] = (byte)((grayValues[i] + grayValues[i - 1] + grayValues[i + 1] + grayValues[i + Width] + grayValues[i + Width + 1] + grayValues[i + Width - 1]) / 6);
+                //}
+
+                int elem = 0;
+                int m1 = 0;
+                for (int i = Width + 1; i < grayValues.Length - Width -1; i++)
+                {
+
+                    if ((grayValues[i] + grayValues[i - Width - 1] + grayValues[i - Width] + grayValues[i - Width + 1] + grayValues[i - 1] + grayValues[i + 1] + grayValues[i + Width - 1] + grayValues[i + Width] + grayValues[i + Width + 1]) >= 255)
+                    {
+                        int testc = (grayValues[i] + grayValues[i - Width - 1] + grayValues[i - Width] + grayValues[i - Width + 1] + grayValues[i - 1] + grayValues[i + 1] + grayValues[i + Width - 1] + grayValues[i + Width] + grayValues[i + Width + 1]);
+                        int fa = 0, fb = 0, fc = 0, fd = 0;
+                        if ((testc < 510) || (testc > 1530)) fa = 1;
+                        int Tp = 0;
+
+                        byte[] values = new byte[8];
+                        values[0] = grayValues[i - Width];
+                        values[1] = grayValues[i - Width + 1];
+                        values[2] = grayValues[i + 1];
+                        values[3] = grayValues[i + Width + 1];
+                        values[4] = grayValues[i + Width];
+                        values[5] = grayValues[i + Width - 1];
+                        values[6] = grayValues[i - 1];
+                        values[7] = grayValues[i - Width - 1];
+
+                        for (int j = 0; j < 7; j++)
+                            if ((values[j] == 255) && (values[j + 1] == 0)) Tp++;
+                        if (Tp == 1) fb = 1;
+
+                        if ((grayValues[i - Width] + grayValues[i + 1] + grayValues[i + Width]) >= 255) fc = 1;
+
+                        if ((grayValues[i + 1] + grayValues[i + Width] + grayValues[i - 1]) >= 255) fd = 1;
+
+                        for (int k = elem; k < i; k++)
+                            NewgrayValues1[k] = grayValues[k];
+
+                        if ((fa + fb + fc + fd) == 4)
+                        {
+                            if (grayValues[i] != 0)
+                            {
+                                m1++;
+                            }
+                            NewgrayValues1[i] = 255;
+                        }
+                        else
+                        {
+                            NewgrayValues1[i] = grayValues[i];
+                        }
+                        elem = i + 1;
+
+                    }
+
+
+                    //end = i - Width + 1;
+                    //if (end % Width == 0)
+                    //{
+                    //    NewgrayValues[i] = (byte)((grayValues[i] + grayValues[i - 1] + grayValues[i + Width] + grayValues[i + Width - 1] + grayValues[i - Width] + grayValues[i - Width - 1]) / 6);
+                    //    continue;
+                    //}
+                    //else if (end - 1 % Width == 0)
+                    //{
+                    //    NewgrayValues[i] = (byte)((grayValues[i] + grayValues[i + 1] + grayValues[i + Width] + grayValues[i + Width + 1] + grayValues[i - Width] + grayValues[i - Width + 1]) / 6);
+                    //    continue;
+                    //}
+                    //NewgrayValues[i] = (byte)((grayValues[i] + grayValues[i - 1] + grayValues[i + 1] + grayValues[i + Width] + grayValues[i + Width + 1] + grayValues[i + Width - 1] + grayValues[i - Width] + grayValues[i - Width + 1] + grayValues[i - Width - 1]) / 9);
+                }
+
+                elem = 0;
+                int m2 = 0;
+
+                for (int i = Width + 1; i < NewgrayValues1.Length - Width - 1; i++)
+                {
+
+                    if ((NewgrayValues1[i] + NewgrayValues1[i - Width - 1] + NewgrayValues1[i - Width] + NewgrayValues1[i - Width + 1] + NewgrayValues1[i - 1] + NewgrayValues1[i + 1] + NewgrayValues1[i + Width - 1] + NewgrayValues1[i + Width] + NewgrayValues1[i + Width + 1]) >= 255)
+                    {
+                        int testc = (NewgrayValues1[i] + NewgrayValues1[i - Width - 1] + NewgrayValues1[i - Width] + NewgrayValues1[i - Width + 1] + NewgrayValues1[i - 1] + NewgrayValues1[i + 1] + NewgrayValues1[i + Width - 1] + NewgrayValues1[i + Width] + NewgrayValues1[i + Width + 1]);
+                        int fa = 0, fb = 0, fc = 0, fd = 0;
+                        if ((testc < 510) || (testc > 1530)) fa = 1;
+                        int Tp = 0;
+
+                        byte[] values = new byte[8];
+                        values[0] = grayValues[i - Width];
+                        values[1] = grayValues[i - Width + 1];
+                        values[2] = grayValues[i + 1];
+                        values[3] = grayValues[i + Width + 1];
+                        values[4] = grayValues[i + Width];
+                        values[5] = grayValues[i + Width - 1];
+                        values[6] = grayValues[i - 1];
+                        values[7] = grayValues[i - Width - 1];
+
+                        for (int j = 0; j < 7; j++)
+                            if ((values[j] == 255) && (values[j + 1] == 0)) Tp++;
+                        if (Tp == 1) fb = 1;
+
+                        if ((NewgrayValues1[i - Width] + NewgrayValues1[i + 1] + NewgrayValues1[i - 1]) >= 255) fc = 1;
+
+                        if ((NewgrayValues1[i - Width] + NewgrayValues1[i + Width] + NewgrayValues1[i - 1]) >= 0) fd = 1;
+
+                        for (int k = elem; k < i; k++)
+                            NewgrayValues2[k] = grayValues[k];
+
+                        if ((fa + fb + fc + fd) == 4)
+                        {
+                            if (NewgrayValues1[i] != 0)
+                            {
+                                m2++;
+                            }
+                            NewgrayValues2[i] = 255;
+                        }
+                        else
+                        {
+                            NewgrayValues2[i] = grayValues[i];
+                        }
+                        elem = i + 1;
+
+                    }
+
+                }
+
+                //for (int i = grayValues.Length - Width + 1; i < grayValues.Length - 1; i++)
+                //{
+                //    NewgrayValues[i] = (byte)((grayValues[i] + grayValues[i - 1] + grayValues[i + 1] + grayValues[i - Width] + grayValues[i - Width + 1] + grayValues[i - Width - 1]) / 6);
+                //}
+
+                System.Runtime.InteropServices.Marshal.Copy(NewgrayValues2, 0, ptr, bytes);
+
+                TempBitmap.UnlockBits(bmpData);
+
+                return TempBitmap;
+
+            }
+
+            ~smoothing()
+            {
+
+            }
+        } // Сглаживание
+
         class binarization
         { // Бинаризация
             public Bitmap transformation(Bitmap BitBin)
@@ -100,6 +257,15 @@ namespace IMPSpace
             pictureBox1.Image = (Image)BitmapPicture1;
   
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            smoothing test = new smoothing();
+
+            
+
+             pictureBox3.Image = (Image)test.transformation(BitmapBinarization);
         }
     }
     }
