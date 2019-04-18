@@ -105,10 +105,27 @@ namespace IMPSpace
                 for ( int i = Width + 1; i < grayValues.Length - Width - 1; i++)
                 {
 
-                    if ((grayValues[i - Width - 1] + grayValues[i - Width] + grayValues[i - Width + 1] + grayValues[i - 1] + grayValues[i + 1] + grayValues[i + Width - 1] + grayValues[i + Width] + grayValues[i + Width + 1]) < 8)
-                    {
+                    //if ((
+                    //    grayValues[i - Width - 1] + 
+                    //    grayValues[i - Width] + 
+                    //    grayValues[i - Width + 1] + 
+                    //    grayValues[i - 1] + 
+                    //    grayValues[i + 1] + 
+                    //    grayValues[i + Width - 1] + 
+                    //    grayValues[i + Width] + 
+                    //    grayValues[i + Width + 1]) < 8)
+                   // {
                         Cycle++;
-                        int testc = (grayValues[i - Width - 1] + grayValues[i - Width] + grayValues[i - Width + 1] + grayValues[i - 1] + grayValues[i + 1] + grayValues[i + Width - 1] + grayValues[i + Width] + grayValues[i + Width + 1]);
+                        int testc = (
+                            grayValues[i - Width - 1] + 
+                            grayValues[i - Width] + 
+                            grayValues[i - Width + 1] + 
+                            grayValues[i - 1] + 
+                            grayValues[i + 1] + 
+                            grayValues[i + Width - 1] + 
+                            grayValues[i + Width] + 
+                            grayValues[i + Width + 1]);
+
                         int fa = 0, fb = 0, fc = 0, fd = 0;
                         if ((testc >= 2) && (testc <= 6)) fa = 1;
                         int Tp = 0;          
@@ -123,8 +140,7 @@ namespace IMPSpace
                         values[6] = grayValues[i - 1];          // P8
                         values[7] = grayValues[i - Width - 1];  // P9
 
-                        for (int j = 0; j < 7; j++)
-                            if ((values[j] == 0) && (values[j + 1] == 1)) Tp++;
+                        for (int j = 0; j < 6; j++) if ((values[j] == 0) && (values[j + 1] == 1)) Tp++;
                         if ((values[7] == 0) && (values[0] == 1)) Tp++;
                         if (Tp == 1) fb = 1;
 
@@ -132,50 +148,50 @@ namespace IMPSpace
 
                         if ((grayValues[i + 1] * grayValues[i + Width] * grayValues[i - 1]) == 0) fd = 1;
 
-                        for (int k = elem; k < i; k++)
-                        {
-                            if (grayValues[k] == 1)
-                            {
-                                newBit1.SetPixel((k % Width), (k / Width), Color.Black);
-                                m1++;
-                            }
-                            if (grayValues[k] == 0)
-                            {
-                                newBit1.SetPixel((k % Width), (k / Width), Color.White);
-                                m2++;
-                            }
-
-                            m3++;
-                        }
+                        //for (int k = elem; k < i; k++)
+                        //{
+                        //    if (grayValues[k] == 1)
+                        //    {
+                        //        newBit1.SetPixel((k % Width), (k / Width), Color.White);
+                        //        m1++;
+                        //    }
+                        //    if (grayValues[k] == 0)
+                        //    {
+                        //        newBit1.SetPixel((k % Width), (k / Width), Color.Black );
+                        //        m2++;
+                        //    }
+                        //
+                        //    m3++;
+                        //}
 
                         if ((fa + fb + fc + fd) == 4)
                         {
-                            newBit1.SetPixel((i % Width), (i / Width), Color.White);
+                            newBit1.SetPixel((i % Width), (i / Width), Color.Black);
                         }
                         else
                         {
-                            newBit1.SetPixel((i % Width), (i / Width), Color.Black);
+                            newBit1.SetPixel((i % Width), (i / Width), Color.White);
                         }
                         elem = i + 1;
 
-                    }
+                    //}
        
                 }
 
                 //return newBit1;
                 
-                for (int k = elem; k < grayValues.Length; k++)
-                {
-                    if (grayValues[k] == 1)
-                    {
-                        newBit1.SetPixel((k % Width), (k / Width), Color.Black);
-                    }
-                    if (grayValues[k] == 0)
-                    {
-                        newBit1.SetPixel((k % Width), (k / Width), Color.White);
-                    }
-                }
-
+                //for (int k = elem; k < grayValues.Length; k++)
+                //{
+                //    if (grayValues[k] == 1)
+                //    {
+                //        newBit1.SetPixel((k % Width), (k / Width), Color.White);
+                //    }
+                //    if (grayValues[k] == 0)
+                //    {
+                //        newBit1.SetPixel((k % Width), (k / Width), Color.Black );
+                //    }
+                //}
+                //
                 for (int i = 0; i < newBit1.Width; i++)
                 {
                     for (int j = 0; j < newBit1.Height; j++)
@@ -202,9 +218,25 @@ namespace IMPSpace
                 for (int i = Width + 1; i < grayValues.Length - Width - 1; i++)
                 {
 
-                    if ((NewgrayValues1[i - Width - 1] + NewgrayValues1[i - Width] + NewgrayValues1[i - Width + 1] + NewgrayValues1[i - 1] + NewgrayValues1[i + 1] + NewgrayValues1[i + Width - 1] + NewgrayValues1[i + Width] + NewgrayValues1[i + Width + 1]) < 8)
-                    {
-                        int testc = (NewgrayValues1[i - Width - 1] + NewgrayValues1[i - Width] + NewgrayValues1[i - Width + 1] + NewgrayValues1[i - 1] + NewgrayValues1[i + 1] + NewgrayValues1[i + Width - 1] + NewgrayValues1[i + Width] + NewgrayValues1[i + Width + 1]);
+                    //if ((
+                    //    NewgrayValues1[i - Width - 1] + 
+                    //    NewgrayValues1[i - Width] + 
+                    //    NewgrayValues1[i - Width + 1] + 
+                    //    NewgrayValues1[i - 1] + 
+                    //    NewgrayValues1[i + 1] + 
+                    //    NewgrayValues1[i + Width - 1] + 
+                    //    NewgrayValues1[i + Width] + 
+                    //    NewgrayValues1[i + Width + 1]) < 8)
+                    //{
+                        int testc = (
+                            NewgrayValues1[i - Width - 1] + 
+                            NewgrayValues1[i - Width] + 
+                            NewgrayValues1[i - Width + 1] + 
+                            NewgrayValues1[i - 1] + 
+                            NewgrayValues1[i + 1] + 
+                            NewgrayValues1[i + Width - 1] + 
+                            NewgrayValues1[i + Width] +
+                            NewgrayValues1[i + Width + 1]);
                         int fa = 0, fb = 0, fc = 0, fd = 0;
                         if ((testc >= 2) && (testc <= 6)) fa = 1;
                         int Tp = 0;
@@ -219,41 +251,41 @@ namespace IMPSpace
                         values[6] = NewgrayValues1[i - 1];          // P8
                         values[7] = NewgrayValues1[i - Width - 1];  // P9
 
-                        for (int j = 0; j < 7; j++)
+                        for (int j = 0; j < 6; j++)
                             if ((values[j] == 0) && (values[j + 1] == 1)) Tp++;
                         if ((values[7] == 0) && (values[0] == 1)) Tp++;
                         if (Tp == 1) fb = 1;
 
-                        if ((NewgrayValues1[i - Width] * NewgrayValues1[i + 1] * NewgrayValues1[i + Width]) == 0) fc = 1;
-
-                        if ((NewgrayValues1[i + 1] * NewgrayValues1[i + Width] * NewgrayValues1[i - 1]) == 0) fd = 1;
-
-                        for (int k = elem1; k < i; k++)
-                        {
-                            if (NewgrayValues1[k] == 1)
-                            {
-                                newBit2.SetPixel((k % Width), (k / Width), Color.Black);
-                                m1++;
-                            }
-                            if (NewgrayValues1[k] == 0)
-                            {
-                                newBit2.SetPixel((k % Width), (k / Width), Color.White);
-                                m2++;
-                            }
-                            m3++;
-                        }
+                        if ((NewgrayValues1[i - Width] * NewgrayValues1[i + 1] * NewgrayValues1[i - 1]) == 0) fc = 1; // P2 P4 P8
+                        //if ((NewgrayValues1[i - Width] * NewgrayValues1[i + 1] * NewgrayValues1[i + Width]) == 0) fc = 1;
+                        if ((NewgrayValues1[i - Width] * NewgrayValues1[i + Width] * NewgrayValues1[i - 1]) == 0) fd = 1; // P2 P6 P8
+                        //if ((NewgrayValues1[i + 1] * NewgrayValues1[i + Width] * NewgrayValues1[i - 1]) == 0) fd = 1;
+                        //or (int k = elem1; k < i; k++)
+                        //
+                        //   if (NewgrayValues1[k] == 1)
+                        //   {
+                        //       newBit2.SetPixel((k % Width), (k / Width), Color.White );
+                        //       m1++;
+                        //   }
+                        //   if (NewgrayValues1[k] == 0)
+                        //   {
+                        //       newBit2.SetPixel((k % Width), (k / Width), Color.Black);
+                        //       m2++;
+                        //   }
+                        //   m3++;
+                        //
 
                         if ((fa + fb + fc + fd) == 4)
                         {
-                            newBit2.SetPixel((i % Width), (i / Width), Color.White);
+                            newBit2.SetPixel((i % Width), (i / Width), Color.Black);
                         }
                         else
                         {
-                            newBit2.SetPixel((i % Width), (i / Width), Color.Black);
+                            newBit2.SetPixel((i % Width), (i / Width), Color.White);
                         }
                         elem1 = i + 1;
 
-                    }
+                    //}
 
                     int oprtyerg = 0;
                 }
