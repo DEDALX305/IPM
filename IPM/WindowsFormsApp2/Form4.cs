@@ -32,8 +32,8 @@ namespace IMPSpace
 
         }
 
-        class smoothing
-        { // 
+        class skeletization
+        { // Скелетизация! даже в заднице есть выход ¯ \ _ (ツ) _ / ¯ 
             public Bitmap transformation(Bitmap TempBitmap)
             {
                 //Rectangle rect = new Rectangle(0, 0, TempBitmap.Width, TempBitmap.Height);
@@ -43,8 +43,8 @@ namespace IMPSpace
                 Bitmap newBit1 = new Bitmap(TempBitmap.Width, TempBitmap.Height);
                 Bitmap newBit2 = new Bitmap(TempBitmap.Width, TempBitmap.Height);
                 int bytes = TempBitmap.Width*TempBitmap.Height;
-                byte[] grayValues = new byte[bytes];
-                byte[] NewgrayValues1 = new byte[bytes];
+                byte[] color_image = new byte[bytes];
+                //byte[] NewgrayValues1 = new byte[bytes];
                 //byte[] NewgrayValues2 = new byte[bytes];
                 //int end;
 
@@ -53,24 +53,25 @@ namespace IMPSpace
                 int c0 = 0;
                 int c1 = 0;
                 int c2 = 0;
+
+                // Создание массива 1 и 0 по бинаризованному изображению
                 for ( int i = 0; i < TempBitmap.Width; i++)
                 {
                     for ( int j = 0; j < TempBitmap.Height; j++)
                     {
                         if (((TempBitmap.GetPixel(i, j).R + TempBitmap.GetPixel(i, j).G + TempBitmap.GetPixel(i, j).B) / 3) == 0)
                         {
-                            grayValues[i + j * TempBitmap.Width] = 1;
+                            color_image[i + j * TempBitmap.Width] = 1;
                             c1++;
                         } else if (((TempBitmap.GetPixel(i, j).R + TempBitmap.GetPixel(i, j).G + TempBitmap.GetPixel(i, j).B) / 3) == 255)
                         {
-                            grayValues[i + j * TempBitmap.Width] = 0;
+                            color_image[i + j * TempBitmap.Width] = 0;
                             c2++;
                         }
-                      
                     }
                 }
 
-                
+                // эта ннннада?
                 /*
                 for (int i = 0; i < bytes; i++)
                 {
@@ -80,16 +81,18 @@ namespace IMPSpace
                 }
                 */
 
-                int Width = TempBitmap.Width;
-                int Height = TempBitmap.Height;
+                int Width = TempBitmap.Width; // Ширина члена
+                int Height = TempBitmap.Height; // дли... высота члена
 
-                int elem = 0;
-                int m1 = 0;
-                int m2 = 0;
-                int m3 = 0;
-                int Cycle = 0;
-                int pr = 5000;
+                int elem = 0; // Нахуя ?
+                int m1 = 0; // для дебага
+                int m2 = 0; // для дебага
+                int m3 = 0; // для дебага
+                int Cycle = 0; // для дебага
+                int pr = 5000; // Чаво бля?
 
+                // для дебага
+                /*
                 Console.Write('\n' + grayValues[pr - Width - 1]);
                 Console.Write(grayValues[pr - Width]);
                 Console.Write(grayValues[pr - Width + 1]);
@@ -101,10 +104,11 @@ namespace IMPSpace
                 Console.Write('\n' + grayValues[pr + Width - 1]);
                 Console.Write(grayValues[pr + Width]);
                 Console.Write(grayValues[pr + Width + 1]);
+                */
 
-                for ( int i = Width + 1; i < grayValues.Length - Width - 1; i++)
+                for ( int i = Width + 1; i < color_image.Length - Width - 1; i++) // Бегаем по массиву 1 и 0 изображения
                 {
-
+                    //Нахуя он нужен?
                     //if ((
                     //    grayValues[i - Width - 1] + 
                     //    grayValues[i - Width] + 
@@ -115,71 +119,108 @@ namespace IMPSpace
                     //    grayValues[i + Width] + 
                     //    grayValues[i + Width + 1]) < 8)
                    // {
-                        Cycle++;
-                        int testc = (
-                            grayValues[i - Width - 1] + 
-                            grayValues[i - Width] + 
-                            grayValues[i - Width + 1] + 
-                            grayValues[i - 1] + 
-                            grayValues[i + 1] + 
-                            grayValues[i + Width - 1] + 
-                            grayValues[i + Width] + 
-                            grayValues[i + Width + 1]);
 
-                        int fa = 0, fb = 0, fc = 0, fd = 0;
-                        if ((testc >= 2) && (testc <= 6)) fa = 1;
-                        int Tp = 0;          
+                    Cycle++; // для дебага
 
-                        byte[] values = new byte[8];
-                        values[0] = grayValues[i - Width];      // P2 
-                        values[1] = grayValues[i - Width + 1];  // P3
-                        values[2] = grayValues[i + 1];          // P4
-                        values[3] = grayValues[i + Width + 1];  // P5
-                        values[4] = grayValues[i + Width];      // P6
-                        values[5] = grayValues[i + Width - 1];  // P7
-                        values[6] = grayValues[i - 1];          // P8
-                        values[7] = grayValues[i - Width - 1];  // P9
+                    /* Условия для первого шага
+                      (а) 2 ≤ N(p1) ≤ 6
+                      (б) T(p1) = 1
+                      (в) p2 * p4 * p6 = 0
+                      (г) p4 * p6 * p8 = 0
+                    */
+                    int condition_a = 0, condition_b = 0, condition_v = 0, condition_g = 0; // Обьявление пустых переменных для условий
+                    int T_p = 0; // Обьявление пустой переменной для условия (б)
+                    int N_p1 = ( // Обьявление переменной для условия (а)
+                        color_image[i - Width] +     // P2
+                        color_image[i - Width + 1] + // P3
+                        color_image[i + 1] +         // P4
+                        color_image[i + Width + 1] + // P5
+                        color_image[i + Width] +     // P6
+                        color_image[i + Width - 1] + // P7
+                        color_image[i - 1] +         // P8
+                        color_image[i - Width - 1]); // P9  
 
-                        for (int j = 0; j < 6; j++) if ((values[j] == 0) && (values[j + 1] == 1)) Tp++;
-                        if ((values[7] == 0) && (values[0] == 1)) Tp++;
-                        if (Tp == 1) fb = 1;
+                    // Задание массива для проверки условий (в) и (г)
+                    byte[] array_1_and_0 = new byte[8];
+                    array_1_and_0[0] = color_image[i - Width];      // P2 
+                    array_1_and_0[1] = color_image[i - Width + 1];  // P3
+                    array_1_and_0[2] = color_image[i + 1];          // P4
+                    array_1_and_0[3] = color_image[i + Width + 1];  // P5
+                    array_1_and_0[4] = color_image[i + Width];      // P6
+                    array_1_and_0[5] = color_image[i + Width - 1];  // P7
+                    array_1_and_0[6] = color_image[i - 1];          // P8
+                    array_1_and_0[7] = color_image[i - Width - 1];  // P9
 
-                        if ((grayValues[i - Width] * grayValues[i + 1] * grayValues[i + Width]) == 0) fc = 1;
+                    // Сергей жружко маг? конечно нет
+                    // Проверка условия (а) N(p1) - Число ненулевых соседей элемента p1 N(p1)=p2 + p3 + .... p8 + p9
+                    if ((N_p1 >= 2) && (N_p1 <= 6)) condition_a = 1;
 
-                        if ((grayValues[i + 1] * grayValues[i + Width] * grayValues[i - 1]) == 0) fd = 1;
-
-                        //for (int k = elem; k < i; k++)
-                        //{
-                        //    if (grayValues[k] == 1)
-                        //    {
-                        //        newBit1.SetPixel((k % Width), (k / Width), Color.White);
-                        //        m1++;
-                        //    }
-                        //    if (grayValues[k] == 0)
-                        //    {
-                        //        newBit1.SetPixel((k % Width), (k / Width), Color.Black );
-                        //        m2++;
-                        //    }
-                        //
-                        //    m3++;
-                        //}
-
-                        if ((fa + fb + fc + fd) == 4)
+                    // Проверка условия (б) T(p1) = 1 T(p1) — число переходов 0—1 в упорядоченной последовательности p2, p3, ... , p8, p9, p2
+                    for (int j = 0; j < 7; j++) // Проверка перехода P2...P8
+                    {
+                        if ((array_1_and_0[j] == 0) && (array_1_and_0[j + 1] == 1))
                         {
-                            newBit1.SetPixel((i % Width), (i / Width), Color.Black);
+                            T_p++;
                         }
-                        else
-                        {
-                            newBit1.SetPixel((i % Width), (i / Width), Color.White);
-                        }
-                        elem = i + 1;
+                    }
+                    if ((array_1_and_0[7] == 0) && (array_1_and_0[0] == 1))
+                    {
+                        T_p++; // Проверка перехода P9 и P2
+                    }
+                    if (T_p == 1)
+                    {
+                        condition_b = 1;
+                    }
 
+                    // Как долго я ждал этого момента мой маленький зеленый дружок
+                    // Проверка условия (в) p2 * p4 * p6 = 0
+                    if ((color_image[i - Width] * // P2
+                        color_image[i + 1] * // P4
+                        color_image[i + Width]) == 0) condition_v = 1; // P6
+
+                    // Проверка условия (г) p4 · p6 · p8 = 0
+                    if ((color_image[i + 1] * // P4
+                        color_image[i + Width] * // P6
+                        color_image[i - 1]) == 0) condition_g = 1; // P8
+
+                    // А это нахуя? Ковальский, анализ
+
+                    //for (int k = elem; k < i; k++)
+                    //{
+                    //    if (grayValues[k] == 1)
+                    //    {
+                    //        newBit1.SetPixel((k % Width), (k / Width), Color.White);
+                    //        m1++;
+                    //    }
+                    //    if (grayValues[k] == 0)
+                    //    {
+                    //        newBit1.SetPixel((k % Width), (k / Width), Color.Black );
+                    //        m2++;
+                    //    }
+                    //
+                    //    m3++;
                     //}
-       
+                    
+                    // Я вот думаю нам 2 массива точно нада? может в этом вся проблема ?
+                    // Создаем новое изображения после первого прохода
+                    if ((condition_a + condition_b + condition_v + condition_g) == 4)
+                    {   // досих пор не пойму как это считается Your bunny wrote
+                        //newBit1.SetPixel((i % Width), (i / Width), Color.White);
+                        color_image[i] = 0;
+                    }
+                    else
+                    {
+                        //newBit1.SetPixel((i % Width), (i / Width), Color.White);
+                        int xddd = 0;
+                    }
+                    //elem = i + 1;
+                    //}
                 }
 
                 //return newBit1;
-                
+
+                // А это нахуя? Нихуя не понятно ..... ЧИ ДА??!
+
                 //for (int k = elem; k < grayValues.Length; k++)
                 //{
                 //    if (grayValues[k] == 1)
@@ -192,30 +233,32 @@ namespace IMPSpace
                 //    }
                 //}
                 //
-                for (int i = 0; i < newBit1.Width; i++)
-                {
-                    for (int j = 0; j < newBit1.Height; j++)
-                    {
-                        if (((newBit1.GetPixel(i, j).R + newBit1.GetPixel(i, j).G + newBit1.GetPixel(i, j).B) / 3) == 0)
-                        {
-                            NewgrayValues1[i + j * newBit1.Width] = 1;
-                        }
-                        else if (((newBit1.GetPixel(i, j).R + newBit1.GetPixel(i, j).G + newBit1.GetPixel(i, j).B) / 3) == 255)
-                        {
-                            NewgrayValues1[i + j * newBit1.Width] = 0;
-                        }
-                    }
-                }
 
-                Width = newBit1.Width;
-                Height = newBit1.Height;
+                // Создаем новый массив 1 и 0
+                //for (int i = 0; i < newBit1.Width; i++)
+                //{
+                //    for (int j = 0; j < newBit1.Height; j++)
+                //    {
+                //        if (((newBit1.GetPixel(i, j).R + newBit1.GetPixel(i, j).G + newBit1.GetPixel(i, j).B) / 3) == 0)
+                //        {
+                //            NewgrayValues1[i + j * newBit1.Width] = 1;
+                //        }
+                //        else if (((newBit1.GetPixel(i, j).R + newBit1.GetPixel(i, j).G + newBit1.GetPixel(i, j).B) / 3) == 255)
+                //        {
+                //            NewgrayValues1[i + j * newBit1.Width] = 0;
+                //        }
+                //    }
+                //}
 
-                int elem1 = 0;
-                m1 = 0;
-                m2 = 0;
-                m3 = 0;
+                //Width = newBit1.Width; // Ширина как у нега
+                //Height = newBit1.Height; // Длина как у нега
+                //
+                //int elem1 = 0;
+                //m1 = 0;
+                //m2 = 0;
+                //m3 = 0;
 
-                for (int i = Width + 1; i < grayValues.Length - Width - 1; i++)
+                for (int i = Width + 1; i < color_image.Length - Width - 1; i++)
                 {
 
                     //if ((
@@ -229,36 +272,36 @@ namespace IMPSpace
                     //    NewgrayValues1[i + Width + 1]) < 8)
                     //{
                         int testc = (
-                            NewgrayValues1[i - Width - 1] + 
-                            NewgrayValues1[i - Width] + 
-                            NewgrayValues1[i - Width + 1] + 
-                            NewgrayValues1[i - 1] + 
-                            NewgrayValues1[i + 1] + 
-                            NewgrayValues1[i + Width - 1] + 
-                            NewgrayValues1[i + Width] +
-                            NewgrayValues1[i + Width + 1]);
+                            color_image[i - Width - 1] +
+                            color_image[i - Width] +
+                            color_image[i - Width + 1] +
+                            color_image[i - 1] +
+                            color_image[i + 1] +
+                            color_image[i + Width - 1] +
+                            color_image[i + Width] +
+                            color_image[i + Width + 1]);
                         int fa = 0, fb = 0, fc = 0, fd = 0;
                         if ((testc >= 2) && (testc <= 6)) fa = 1;
                         int Tp = 0;
 
                         byte[] values = new byte[8];
-                        values[0] = NewgrayValues1[i - Width];      // P2 
-                        values[1] = NewgrayValues1[i - Width + 1];  // P3
-                        values[2] = NewgrayValues1[i + 1];          // P4
-                        values[3] = NewgrayValues1[i + Width + 1];  // P5
-                        values[4] = NewgrayValues1[i + Width];      // P6
-                        values[5] = NewgrayValues1[i + Width - 1];  // P7
-                        values[6] = NewgrayValues1[i - 1];          // P8
-                        values[7] = NewgrayValues1[i - Width - 1];  // P9
+                        values[0] = color_image[i - Width];      // P2 
+                        values[1] = color_image[i - Width + 1];  // P3
+                        values[2] = color_image[i + 1];          // P4
+                        values[3] = color_image[i + Width + 1];  // P5
+                        values[4] = color_image[i + Width];      // P6
+                        values[5] = color_image[i + Width - 1];  // P7
+                        values[6] = color_image[i - 1];          // P8
+                        values[7] = color_image[i - Width - 1];  // P9
 
-                        for (int j = 0; j < 6; j++)
+                        for (int j = 0; j < 7; j++)
                             if ((values[j] == 0) && (values[j + 1] == 1)) Tp++;
                         if ((values[7] == 0) && (values[0] == 1)) Tp++;
                         if (Tp == 1) fb = 1;
 
-                        if ((NewgrayValues1[i - Width] * NewgrayValues1[i + 1] * NewgrayValues1[i - 1]) == 0) fc = 1; // P2 P4 P8
+                        if ((color_image[i - Width] * color_image[i + 1] * color_image[i - 1]) == 0) fc = 1; // P2 P4 P8
                         //if ((NewgrayValues1[i - Width] * NewgrayValues1[i + 1] * NewgrayValues1[i + Width]) == 0) fc = 1;
-                        if ((NewgrayValues1[i - Width] * NewgrayValues1[i + Width] * NewgrayValues1[i - 1]) == 0) fd = 1; // P2 P6 P8
+                        if ((color_image[i - Width] * color_image[i + Width] * color_image[i - 1]) == 0) fd = 1; // P2 P6 P8
                         //if ((NewgrayValues1[i + 1] * NewgrayValues1[i + Width] * NewgrayValues1[i - 1]) == 0) fd = 1;
                         //or (int k = elem1; k < i; k++)
                         //
@@ -277,18 +320,38 @@ namespace IMPSpace
 
                         if ((fa + fb + fc + fd) == 4)
                         {
-                            newBit2.SetPixel((i % Width), (i / Width), Color.Black);
-                        }
+                            //newBit2.SetPixel((i % Width), (i / Width), Color.Black);
+                            color_image[i] = 0;
+                    }
                         else
                         {
-                            newBit2.SetPixel((i % Width), (i / Width), Color.White);
-                        }
-                        elem1 = i + 1;
+                        //newBit2.SetPixel((i % Width), (i / Width), Color.White); Black
+                        int xddd = 0;
+                    }
+                        //elem1 = i + 1;
 
                     //}
 
                     int oprtyerg = 0;
                 }
+
+                //for (int j = 0; j < 7; j++)
+                //{
+                //    newBit2.SetPixel((i % Width), (i / Width), Color.Black);
+                //}
+
+                for (int i = 0; i < color_image.Length; i++)
+                {
+                    if (color_image[i] == 1)
+                    {
+                        newBit2.SetPixel((i % Width), (i / Width), Color.Black);
+                    }
+                    if (color_image[i] == 0)
+                    {
+                        newBit2.SetPixel((i % Width), (i / Width), Color.White);
+                    }
+                }
+                
 
                 return newBit2;
                 
@@ -453,7 +516,7 @@ namespace IMPSpace
 
             }
 
-            ~smoothing()
+            ~skeletization()
             {
 
             }
@@ -562,7 +625,7 @@ namespace IMPSpace
 
         private void button3_Click(object sender, EventArgs e)
         {
-            smoothing test = new smoothing();
+            skeletization test = new skeletization();
 
             binarization2 binar = new binarization2();
             bitNew = binar.BitmapToBlackWhite2(BitmapBinarization);

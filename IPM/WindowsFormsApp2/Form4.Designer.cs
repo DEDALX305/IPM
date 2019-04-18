@@ -65,9 +65,9 @@
             // pictureBox2
             // 
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(398, 41);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 430);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(531, 548);
+            this.pictureBox2.Size = new System.Drawing.Size(380, 395);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -94,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(599, 602);
+            this.label2.Location = new System.Drawing.Point(139, 828);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 5;
@@ -103,9 +103,9 @@
             // pictureBox3
             // 
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(935, 41);
+            this.pictureBox3.Location = new System.Drawing.Point(398, 41);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(633, 506);
+            this.pictureBox3.Size = new System.Drawing.Size(778, 778);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
@@ -113,7 +113,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1154, 550);
+            this.label3.Location = new System.Drawing.Point(736, 822);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 13);
             this.label3.TabIndex = 7;
@@ -121,11 +121,11 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(287, 12);
+            this.button3.Location = new System.Drawing.Point(278, 12);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(97, 23);
             this.button3.TabIndex = 8;
-            this.button3.Text = "button3";
+            this.button3.Text = "Скелитизация";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -133,7 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1604, 705);
+            this.ClientSize = new System.Drawing.Size(1188, 844);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox3);
