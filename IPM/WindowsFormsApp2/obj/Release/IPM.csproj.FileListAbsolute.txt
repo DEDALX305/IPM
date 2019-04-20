@@ -1,0 +1,16 @@
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\bin\Release\IMP.exe.config
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\bin\Release\IMP.exe
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\bin\Release\IMP.pdb
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\bin\Release\MetroFramework.Design.dll
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\bin\Release\MetroFramework.dll
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\bin\Release\MetroFramework.Fonts.dll
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Release\WindowsFormsApp2.Form1.resources
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Release\WindowsFormsApp2.Form2.resources
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Release\WindowsFormsApp2.Form3.resources
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Release\IMPSpace.Form4.resources
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Release\IMPSpace.Properties.Resources.resources
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Release\IPM.csproj.GenerateResource.cache
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Release\IPM.csproj.CoreCompileInputs.cache
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Release\IPM.csproj.CopyComplete
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Release\IMP.exe
+C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Release\IMP.pdb
