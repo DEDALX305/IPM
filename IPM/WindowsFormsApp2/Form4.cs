@@ -435,7 +435,7 @@ namespace IMPSpace
                 }
 
                 // Если точка идёт наверх, и точка c1 находится теперь слева
-                if (((b1i - 1) == b0i) && (b1j == b0j))
+                if (((b1i + 1) == b0i) && (b1j == b0j))
                 {
                     WhyAreUGay = 1;
                     c1i = b1i;
@@ -446,12 +446,42 @@ namespace IMPSpace
                     array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
                     array_1_and_0_new[4] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
                     array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
-                    array_1_and_0_new[6] = color_image_matr[b1i + 1, bj];  // точка внизу от b1
-                    array_1_and_0_new[7] = color_image_matr[b1i + 1, bj - 1];  // точка слева внизу от b1
+                    array_1_and_0_new[6] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                    array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
+                }
+                // Если точка идёт наверх направо, и точка c1 находится теперь слева
+                if (((b1i + 1) == b0i) && ((b1j - 1) == b0j))
+                {
+                    WhyAreUGay = 1;
+                    c1i = b1i;
+                    c1j = b1j - 1;
+                    array_1_and_0_new[0] = color_image_matr[b1i, b1j - 1];  // левая точка c1 от b1 
+                    array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
+                    array_1_and_0_new[2] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                    array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
+                    array_1_and_0_new[4] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                    array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
+                    array_1_and_0_new[6] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                    array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
                 }
 
                 // Если точка идёт направо, и точка c1 находится теперь вверху
-                if ((b1i == b0i) && ((b1j + 1) == b0j))
+                if ((b1i == b0i) && ((b1j - 1) == b0j))
+                {
+                    WhyAreUGay = 2;
+                    c1i = b1i - 1;
+                    c1j = b1j;
+                    array_1_and_0_new[0] = color_image_matr[b1i - 1, b1j];  // верхняя точка c1 от b1 
+                    array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
+                    array_1_and_0_new[2] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                    array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
+                    array_1_and_0_new[4] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                    array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
+                    array_1_and_0_new[6] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                    array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
+                }
+                // Если точка идёт направо вниз, и точка c1 находится теперь вверху
+                if (((b1i - 1) == b0i) && ((b1j - 1) == b0j))
                 {
                     WhyAreUGay = 2;
                     c1i = b1i - 1;
@@ -467,7 +497,22 @@ namespace IMPSpace
                 }
 
                 // Если точка идёт вниз, и точка c1 находится теперь справа
-                if (((b1i + 1) == b0i) && ((b1j + 1) == b0j))
+                if (((b1i - 1) == b0i) && (b1j == b0j))
+                {
+                    WhyAreUGay = 3;
+                    c1i = b1i;
+                    c1j = b1j + 1;
+                    array_1_and_0_new[0] = color_image_matr[b1i, b1j + 1];  // правая точка c1 от b1 
+                    array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
+                    array_1_and_0_new[2] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                    array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
+                    array_1_and_0_new[4] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                    array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
+                    array_1_and_0_new[6] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                    array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
+                }
+                // Если точка идёт вниз налево, и точка c1 находится теперь справа
+                if (((b1i - 1) == b0i) && ((b1j + 1) == b0j))
                 {
                     WhyAreUGay = 3;
                     c1i = b1i;
@@ -483,7 +528,22 @@ namespace IMPSpace
                 }
 
                 // Если точка идёт налево, то она шалава и точка c1 находится теперь внизу
-                if ((b1i == b0i) && ((b1j - 1) == b0j))
+                if ((b1i == b0i) && ((b1j + 1) == b0j))
+                {
+                    WhyAreUGay = 4;
+                    c1i = b1i + 1;
+                    c1j = b1j;
+                    array_1_and_0_new[0] = color_image_matr[b1i + 1, b1j];  // нижняя точка c1 от b1 
+                    array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
+                    array_1_and_0_new[2] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                    array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
+                    array_1_and_0_new[4] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                    array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
+                    array_1_and_0_new[6] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                    array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
+                }
+                // Если точка идёт налево вверх, и точка c1 находится теперь внизу
+                if (((b1i + 1) == b0i) && ((b1j + 1) == b0j))
                 {
                     WhyAreUGay = 4;
                     c1i = b1i + 1;
@@ -500,43 +560,43 @@ namespace IMPSpace
 
                 // Умение использовать if ещё не признак интеллекта
                 // Если точка идёт наверх 
-                if (((b1i - 1) == b0i) && (b1j == b0j))
+                if (((b1i + 1) == b0i) && (b1j == b0j))
                 {
                     movement.Add(2);
                 }
                 // Если точка идёт наверх направо
-                if (((b1i - 1)  == b0i) && ((b1j + 1) == b0j))
+                if (((b1i + 1)  == b0i) && ((b1j - 1) == b0j))
                 {
                     movement.Add(1);
                 }
                 // Если точка идёт направо
-                if ((b1i == b0i) && ((b1j + 1) == b0j))
+                if ((b1i == b0i) && ((b1j - 1) == b0j))
                 {
                     movement.Add(0);
                 }
                 // Если точка идёт вниз направо
-                if (((b1i + 1) == b0i) && ((b1j + 1) == b0j))
+                if (((b1i - 1) == b0i) && ((b1j - 1) == b0j))
                 {
                     movement.Add(7);
                 }
                 // Если точка идёт вниз
-                if (((b1i + 1) == b0i) && (b1j == b0j))
+                if (((b1i - 1) == b0i) && (b1j == b0j))
                 {
                     movement.Add(6);
                     // Будешь проходить мимо.... проходи мимо
                 }
                 // Если точка идёт вниз налево
-                if (((b1i + 1) == b0i) && ((b1j - 1) == b0j))
+                if (((b1i - 1) == b0i) && ((b1j + 1) == b0j))
                 {
                     movement.Add(5);
                 }
                 // Если точка идёт налево, то она шалава
-                if ((b1i == b0i) && ((b1j - 1) == b0j))
+                if ((b1i == b0i) && ((b1j + 1) == b0j))
                 {
                     movement.Add(4);
                 }
                 // Если точка идёт налево наверх
-                if (((b1i - 1) == b0i) && ((b1j - 1) == b0j))
+                if (((b1i + 1) == b0i) && ((b1j + 1) == b0j))
                 {
                     movement.Add(3);
                     // Твоему направлению пришщёл конец!
@@ -570,200 +630,6 @@ namespace IMPSpace
                     */
                     // Создание массива вокруг точки b0 для обхода по точкам вокруг неё по часовой стрелке
                     // Ты недооцениваешь мой код!
-
-                    // Если точка идёт направо, и точка c1 находится теперь вверху
-                    if (WhyAreUGay == 2)
-                    {
-                        for (int i = 0; i < 8; i++)
-                        {
-                            if (array_1_and_0_new[i] == 1)
-                            {
-                                switch (i)
-                                {
-                                    case 0:
-                                        {
-                                            b1i = bi - 1;
-                                            b1j = bj;
-                                            c1i = bi - 1;
-                                            c1j = bj - 1;
-                                            break;
-                                        }
-                                    case 1:
-                                        {
-                                            b1i = bi - 1;
-                                            b1j = bj + 1;
-                                            c1i = bi - 1;
-                                            c1j = bj;
-                                            break;
-                                        }
-                                    case 2:
-                                        {
-                                            b1i = bi;
-                                            b1j = bj + 1;
-                                            c1i = bi - 1;
-                                            c1j = bj + 1;
-                                            break;
-                                        }
-                                    case 3:
-                                        {
-                                            b1i = bi + 1;
-                                            b1j = bj + 1;
-                                            c1i = bi;
-                                            c1j = bj + 1;
-                                            break;
-                                        }
-                                    case 4:
-                                        {
-                                            b1i = bi + 1;
-                                            b1j = bj;
-                                            c1i = bi + 1;
-                                            c1j = bj + 1;
-                                            break;
-                                        }
-                                    case 5:
-                                        {
-                                            b1i = bi + 1;
-                                            b1j = bj - 1;
-                                            c1i = bi + 1;
-                                            c1j = bj;
-                                            break;
-                                        }
-                                    case 6:
-                                        {
-                                            b1i = bi;
-                                            b1j = bj - 1;
-                                            c1i = bi + 1;
-                                            c1j = bj - 1;
-                                            break;
-                                        }
-                                    case 7:
-                                        {
-                                            b1i = bi - 1;
-                                            b1j = bj - 1;
-                                            c1i = bi;
-                                            c1j = bj - 1;
-                                            break;
-                                        }
-                                }
-
-                                break;
-                            }
-                        }
-
-                        //Смотрим куда пошла точка... Спойлер: К твоей мамаше.
-                        // Если точка идёт наверх, и точка c1 находится теперь слева
-                        if (((b1i - 1) == bi) && (b1j == bj))
-                        {
-                            WhyAreUGay = 1;
-                            c1i = b1i;
-                            c1j = b1j - 1;
-                            array_1_and_0_new[0] = color_image_matr[b1i, b1j - 1];  // левая точка c1 от b1 
-                            array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
-                            array_1_and_0_new[2] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
-                            array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
-                            array_1_and_0_new[4] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
-                            array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
-                            array_1_and_0_new[6] = color_image_matr[b1i + 1, bj];  // точка внизу от b1
-                            array_1_and_0_new[7] = color_image_matr[b1i + 1, bj - 1];  // точка слева внизу от b1
-                        }
-
-                        // Если точка идёт направо, и точка c1 находится теперь вверху
-                        if ((b1i == bi) && ((b1j + 1) == bj))
-                        {
-                            WhyAreUGay = 2;
-                            c1i = b1i - 1;
-                            c1j = b1j;
-                            array_1_and_0_new[0] = color_image_matr[b1i - 1, b1j];  // верхняя точка c1 от b1 
-                            array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
-                            array_1_and_0_new[2] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
-                            array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
-                            array_1_and_0_new[4] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
-                            array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
-                            array_1_and_0_new[6] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
-                            array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
-                        }
-
-                        // Если точка идёт вниз, и точка c1 находится теперь справа
-                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
-                        {
-                            WhyAreUGay = 3;
-                            c1i = b1i;
-                            c1j = b1j + 1;
-                            array_1_and_0_new[0] = color_image_matr[b1i, b1j + 1];  // правая точка c1 от b1 
-                            array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
-                            array_1_and_0_new[2] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
-                            array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
-                            array_1_and_0_new[4] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
-                            array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
-                            array_1_and_0_new[6] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
-                            array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
-                        }
-
-                        // Если точка идёт налево, то она шалава и точка c1 находится теперь внизу
-                        if ((b1i == bi) && ((b1j - 1) == bj))
-                        {
-                            WhyAreUGay = 4;
-                            c1i = b1i + 1;
-                            c1j = b1j;
-                            array_1_and_0_new[0] = color_image_matr[b1i + 1, b1j];  // нижняя точка c1 от b1 
-                            array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
-                            array_1_and_0_new[2] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
-                            array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
-                            array_1_and_0_new[4] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
-                            array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
-                            array_1_and_0_new[6] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
-                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
-                        }
-
-                        // Добавляем в массив путей значение.
-                        // Если точка идёт наверх 
-                        if (((b1i - 1) == bi) && (b1j == bj))
-                        {
-                            movement.Add(2);
-                        }
-                        // Если точка идёт наверх направо
-                        if (((b1i - 1) == bi) && ((b1j + 1) == bj))
-                        {
-                            movement.Add(1);
-                        }
-                        // Если точка идёт направо
-                        if ((b1i == bi) && ((b1j + 1) == bj))
-                        {
-                            movement.Add(0);
-                        }
-                        // Если точка идёт вниз направо
-                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
-                        {
-                            movement.Add(7);
-                        }
-                        // Если точка идёт вниз
-                        if (((b1i + 1) == bi) && (b1j == bj))
-                        {
-                            movement.Add(6);
-                            // Будешь проходить мимо.... проходи мимо
-                        }
-                        // Если точка идёт вниз налево
-                        if (((b1i + 1) == bi) && ((b1j - 1) == bj))
-                        {
-                            movement.Add(5);
-                        }
-                        // Если точка идёт налево, то она шалава
-                        if ((b1i == bi) && ((b1j - 1) == bj))
-                        {
-                            movement.Add(4);
-                        }
-                        // Если точка идёт налево наверх
-                        if (((b1i - 1) == bi) && ((b1j - 1) == bj))
-                        {
-                            movement.Add(3);
-                            // Твоему направлению пришщёл конец!
-                        }
-
-                        bi = b1i;
-                        bj = b1j;
-                        ci = c1i;
-                        cj = c1j;
-                    }
 
                     // Если точка идёт наверх, и точка c1 находится теперь слева
                     if (WhyAreUGay == 1)
@@ -846,7 +712,7 @@ namespace IMPSpace
 
                         //Смотрим куда пошла точка... Спойлер: К твоей мамаше.
                         // Если точка идёт наверх, и точка c1 находится теперь слева
-                        if (((b1i - 1) == bi) && (b1j == bj))
+                        if (((b1i + 1) == bi) && (b1j == bj))
                         {
                             WhyAreUGay = 1;
                             c1i = b1i;
@@ -857,12 +723,42 @@ namespace IMPSpace
                             array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
                             array_1_and_0_new[4] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
                             array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
-                            array_1_and_0_new[6] = color_image_matr[b1i + 1, bj];  // точка внизу от b1
-                            array_1_and_0_new[7] = color_image_matr[b1i + 1, bj - 1];  // точка слева внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
+                        }
+                        // Если точка идёт наверх направо, и точка c1 находится теперь слева
+                        if (((b1i + 1) == bi) && ((b1j - 1) == bj))
+                        {
+                            WhyAreUGay = 1;
+                            c1i = b1i;
+                            c1j = b1j - 1;
+                            array_1_and_0_new[0] = color_image_matr[b1i, b1j - 1];  // левая точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
                         }
 
                         // Если точка идёт направо, и точка c1 находится теперь вверху
-                        if ((b1i == bi) && ((b1j + 1) == bj))
+                        if ((b1i == bi) && ((b1j - 1) == bj))
+                        {
+                            WhyAreUGay = 2;
+                            c1i = b1i - 1;
+                            c1j = b1j;
+                            array_1_and_0_new[0] = color_image_matr[b1i - 1, b1j];  // верхняя точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
+                        }
+                        // Если точка идёт направо вниз, и точка c1 находится теперь вверху
+                        if (((b1i - 1) == bi) && ((b1j - 1) == bj))
                         {
                             WhyAreUGay = 2;
                             c1i = b1i - 1;
@@ -878,7 +774,22 @@ namespace IMPSpace
                         }
 
                         // Если точка идёт вниз, и точка c1 находится теперь справа
-                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
+                        if (((b1i - 1) == bi) && (b1j == bj))
+                        {
+                            WhyAreUGay = 3;
+                            c1i = b1i;
+                            c1j = b1j + 1;
+                            array_1_and_0_new[0] = color_image_matr[b1i, b1j + 1];  // правая точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
+                        }
+                        // Если точка идёт вниз налево, и точка c1 находится теперь справа
+                        if (((b1i - 1) == bi) && ((b1j + 1) == bj))
                         {
                             WhyAreUGay = 3;
                             c1i = b1i;
@@ -894,7 +805,22 @@ namespace IMPSpace
                         }
 
                         // Если точка идёт налево, то она шалава и точка c1 находится теперь внизу
-                        if ((b1i == bi) && ((b1j - 1) == bj))
+                        if ((b1i == bi) && ((b1j + 1) == bj))
+                        {
+                            WhyAreUGay = 4;
+                            c1i = b1i + 1;
+                            c1j = b1j;
+                            array_1_and_0_new[0] = color_image_matr[b1i + 1, b1j];  // нижняя точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
+                        }
+                        // Если точка идёт налево вверх, и точка c1 находится теперь внизу
+                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
                         {
                             WhyAreUGay = 4;
                             c1i = b1i + 1;
@@ -911,43 +837,43 @@ namespace IMPSpace
 
                         // Добавляем в массив путей значение.
                         // Если точка идёт наверх 
-                        if (((b1i - 1) == bi) && (b1j == bj))
+                        if (((b1i + 1) == bi) && (b1j == bj))
                         {
                             movement.Add(2);
                         }
                         // Если точка идёт наверх направо
-                        if (((b1i - 1) == bi) && ((b1j + 1) == bj))
+                        if (((b1i + 1) == bi) && ((b1j - 1) == bj))
                         {
                             movement.Add(1);
                         }
                         // Если точка идёт направо
-                        if ((b1i == bi) && ((b1j + 1) == bj))
+                        if ((b1i == bi) && ((b1j - 1) == bj))
                         {
                             movement.Add(0);
                         }
                         // Если точка идёт вниз направо
-                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
+                        if (((b1i - 1) == bi) && ((b1j - 1) == bj))
                         {
                             movement.Add(7);
                         }
                         // Если точка идёт вниз
-                        if (((b1i + 1) == bi) && (b1j == bj))
+                        if (((b1i - 1) == bi) && (b1j == bj))
                         {
                             movement.Add(6);
                             // Будешь проходить мимо.... проходи мимо
                         }
                         // Если точка идёт вниз налево
-                        if (((b1i + 1) == bi) && ((b1j - 1) == bj))
+                        if (((b1i - 1) == bi) && ((b1j + 1) == bj))
                         {
                             movement.Add(5);
                         }
                         // Если точка идёт налево, то она шалава
-                        if ((b1i == bi) && ((b1j - 1) == bj))
+                        if ((b1i == bi) && ((b1j + 1) == bj))
                         {
                             movement.Add(4);
                         }
                         // Если точка идёт налево наверх
-                        if (((b1i - 1) == bi) && ((b1j - 1) == bj))
+                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
                         {
                             movement.Add(3);
                             // Твоему направлению пришщёл конец!
@@ -957,10 +883,258 @@ namespace IMPSpace
                         bj = b1j;
                         ci = c1i;
                         cj = c1j;
-                    }
+                    } else if (WhyAreUGay == 2)    // Если точка идёт направо, и точка c1 находится теперь вверху
+                    {
+                        for (int i = 0; i < 8; i++)
+                        {
+                            if (array_1_and_0_new[i] == 1)
+                            {
+                                switch (i)
+                                {
+                                    case 0:
+                                        {
+                                            b1i = bi - 1;
+                                            b1j = bj;
+                                            c1i = bi - 1;
+                                            c1j = bj - 1;
+                                            break;
+                                        }
+                                    case 1:
+                                        {
+                                            b1i = bi - 1;
+                                            b1j = bj + 1;
+                                            c1i = bi - 1;
+                                            c1j = bj;
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            b1i = bi;
+                                            b1j = bj + 1;
+                                            c1i = bi - 1;
+                                            c1j = bj + 1;
+                                            break;
+                                        }
+                                    case 3:
+                                        {
+                                            b1i = bi + 1;
+                                            b1j = bj + 1;
+                                            c1i = bi;
+                                            c1j = bj + 1;
+                                            break;
+                                        }
+                                    case 4:
+                                        {
+                                            b1i = bi + 1;
+                                            b1j = bj;
+                                            c1i = bi + 1;
+                                            c1j = bj + 1;
+                                            break;
+                                        }
+                                    case 5:
+                                        {
+                                            b1i = bi + 1;
+                                            b1j = bj - 1;
+                                            c1i = bi + 1;
+                                            c1j = bj;
+                                            break;
+                                        }
+                                    case 6:
+                                        {
+                                            b1i = bi;
+                                            b1j = bj - 1;
+                                            c1i = bi + 1;
+                                            c1j = bj - 1;
+                                            break;
+                                        }
+                                    case 7:
+                                        {
+                                            b1i = bi - 1;
+                                            b1j = bj - 1;
+                                            c1i = bi;
+                                            c1j = bj - 1;
+                                            break;
+                                        }
+                                }
 
-                    // Если точка идёт вниз, и точка c1 находится теперь справа
-                    if (WhyAreUGay == 3)
+                                break;
+                            }
+                        }
+
+                        // Смотрим куда пошла точка... Спойлер: К твоей мамаше.
+                        // Если точка идёт наверх, и точка c1 находится теперь слева
+                        if (((b1i + 1) == bi) && (b1j == bj))
+                        {
+                            WhyAreUGay = 1;
+                            c1i = b1i;
+                            c1j = b1j - 1;
+                            array_1_and_0_new[0] = color_image_matr[b1i, b1j - 1];  // левая точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
+                        }
+                        // Если точка идёт наверх направо, и точка c1 находится теперь слева
+                        if (((b1i + 1) == bi) && ((b1j - 1) == bj))
+                        {
+                            WhyAreUGay = 1;
+                            c1i = b1i;
+                            c1j = b1j - 1;
+                            array_1_and_0_new[0] = color_image_matr[b1i, b1j - 1];  // левая точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
+                        }
+
+                        // Если точка идёт направо, и точка c1 находится теперь вверху
+                        if ((b1i == bi) && ((b1j - 1) == bj))
+                        {
+                            WhyAreUGay = 2;
+                            c1i = b1i - 1;
+                            c1j = b1j;
+                            array_1_and_0_new[0] = color_image_matr[b1i - 1, b1j];  // верхняя точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
+                        }
+                        // Если точка идёт направо вниз, и точка c1 находится теперь вверху
+                        if (((b1i - 1) == bi) && ((b1j - 1) == bj))
+                        {
+                            WhyAreUGay = 2;
+                            c1i = b1i - 1;
+                            c1j = b1j;
+                            array_1_and_0_new[0] = color_image_matr[b1i - 1, b1j];  // верхняя точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
+                        }
+
+                        // Если точка идёт вниз, и точка c1 находится теперь справа
+                        if (((b1i - 1) == bi) && (b1j == bj))
+                        {
+                            WhyAreUGay = 3;
+                            c1i = b1i;
+                            c1j = b1j + 1;
+                            array_1_and_0_new[0] = color_image_matr[b1i, b1j + 1];  // правая точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
+                        }
+                        // Если точка идёт вниз налево, и точка c1 находится теперь справа
+                        if (((b1i - 1) == bi) && ((b1j + 1) == bj))
+                        {
+                            WhyAreUGay = 3;
+                            c1i = b1i;
+                            c1j = b1j + 1;
+                            array_1_and_0_new[0] = color_image_matr[b1i, b1j + 1];  // правая точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
+                        }
+
+                        // Если точка идёт налево, то она шалава и точка c1 находится теперь внизу
+                        if ((b1i == bi) && ((b1j + 1) == bj))
+                        {
+                            WhyAreUGay = 4;
+                            c1i = b1i + 1;
+                            c1j = b1j;
+                            array_1_and_0_new[0] = color_image_matr[b1i + 1, b1j];  // нижняя точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
+                        }
+                        // Если точка идёт налево вверх, и точка c1 находится теперь внизу
+                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
+                        {
+                            WhyAreUGay = 4;
+                            c1i = b1i + 1;
+                            c1j = b1j;
+                            array_1_and_0_new[0] = color_image_matr[b1i + 1, b1j];  // нижняя точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
+                        }
+
+                        // Добавляем в массив путей значение.
+                        // Если точка идёт наверх 
+                        if (((b1i + 1) == bi) && (b1j == bj))
+                        {
+                            movement.Add(2);
+                        }
+                        // Если точка идёт наверх направо
+                        if (((b1i + 1) == bi) && ((b1j - 1) == bj))
+                        {
+                            movement.Add(1);
+                        }
+                        // Если точка идёт направо
+                        if ((b1i == bi) && ((b1j - 1) == bj))
+                        {
+                            movement.Add(0);
+                        }
+                        // Если точка идёт вниз направо
+                        if (((b1i - 1) == bi) && ((b1j - 1) == bj))
+                        {
+                            movement.Add(7);
+                        }
+                        // Если точка идёт вниз
+                        if (((b1i - 1) == bi) && (b1j == bj))
+                        {
+                            movement.Add(6);
+                            // Будешь проходить мимо.... проходи мимо
+                        }
+                        // Если точка идёт вниз налево
+                        if (((b1i - 1) == bi) && ((b1j + 1) == bj))
+                        {
+                            movement.Add(5);
+                        }
+                        // Если точка идёт налево, то она шалава
+                        if ((b1i == bi) && ((b1j + 1) == bj))
+                        {
+                            movement.Add(4);
+                        }
+                        // Если точка идёт налево наверх
+                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
+                        {
+                            movement.Add(3);
+                            // Твоему направлению пришщёл конец!
+                        }
+
+                        bi = b1i;
+                        bj = b1j;
+                        ci = c1i;
+                        cj = c1j;
+                    } else if (WhyAreUGay == 3)    // Если точка идёт вниз, и точка c1 находится теперь справа
                     {
                         for (int i = 0; i < 8; i++)
                         {
@@ -1040,7 +1214,7 @@ namespace IMPSpace
 
                         //Смотрим куда пошла точка... Спойлер: К твоей мамаше.
                         // Если точка идёт наверх, и точка c1 находится теперь слева
-                        if (((b1i - 1) == bi) && (b1j == bj))
+                        if (((b1i + 1) == bi) && (b1j == bj))   //Смотрим куда пошла точка... Спойлер: К твоей мамаше.  // Если точка идёт наверх, и точка c1 находится теперь слева
                         {
                             WhyAreUGay = 1;
                             c1i = b1i;
@@ -1051,12 +1225,42 @@ namespace IMPSpace
                             array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
                             array_1_and_0_new[4] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
                             array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
-                            array_1_and_0_new[6] = color_image_matr[b1i + 1, bj];  // точка внизу от b1
-                            array_1_and_0_new[7] = color_image_matr[b1i + 1, bj - 1];  // точка слева внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
+                        }
+                        // Если точка идёт наверх направо, и точка c1 находится теперь слева
+                        if (((b1i + 1) == bi) && ((b1j - 1) == bj))
+                        {
+                            WhyAreUGay = 1;
+                            c1i = b1i;
+                            c1j = b1j - 1;
+                            array_1_and_0_new[0] = color_image_matr[b1i, b1j - 1];  // левая точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
                         }
 
                         // Если точка идёт направо, и точка c1 находится теперь вверху
-                        if ((b1i == bi) && ((b1j + 1) == bj))
+                        if ((b1i == bi) && ((b1j - 1) == bj))
+                        {
+                            WhyAreUGay = 2;
+                            c1i = b1i - 1;
+                            c1j = b1j;
+                            array_1_and_0_new[0] = color_image_matr[b1i - 1, b1j];  // верхняя точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
+                        }
+                        // Если точка идёт направо вниз, и точка c1 находится теперь вверху
+                        if (((b1i - 1) == bi) && ((b1j - 1) == bj))
                         {
                             WhyAreUGay = 2;
                             c1i = b1i - 1;
@@ -1072,7 +1276,22 @@ namespace IMPSpace
                         }
 
                         // Если точка идёт вниз, и точка c1 находится теперь справа
-                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
+                        if (((b1i - 1) == bi) && (b1j == bj))
+                        {
+                            WhyAreUGay = 3;
+                            c1i = b1i;
+                            c1j = b1j + 1;
+                            array_1_and_0_new[0] = color_image_matr[b1i, b1j + 1];  // правая точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
+                        }
+                        // Если точка идёт вниз налево, и точка c1 находится теперь справа
+                        if (((b1i - 1) == bi) && ((b1j + 1) == bj))
                         {
                             WhyAreUGay = 3;
                             c1i = b1i;
@@ -1088,7 +1307,22 @@ namespace IMPSpace
                         }
 
                         // Если точка идёт налево, то она шалава и точка c1 находится теперь внизу
-                        if ((b1i == bi) && ((b1j - 1) == bj))
+                        if ((b1i == bi) && ((b1j + 1) == bj))
+                        {
+                            WhyAreUGay = 4;
+                            c1i = b1i + 1;
+                            c1j = b1j;
+                            array_1_and_0_new[0] = color_image_matr[b1i + 1, b1j];  // нижняя точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
+                        }
+                        // Если точка идёт налево вверх, и точка c1 находится теперь внизу
+                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
                         {
                             WhyAreUGay = 4;
                             c1i = b1i + 1;
@@ -1105,43 +1339,43 @@ namespace IMPSpace
 
                         // Добавляем в массив путей значение.
                         // Если точка идёт наверх 
-                        if (((b1i - 1) == bi) && (b1j == bj))
+                        if (((b1i + 1) == bi) && (b1j == bj))
                         {
                             movement.Add(2);
                         }
                         // Если точка идёт наверх направо
-                        if (((b1i - 1) == bi) && ((b1j + 1) == bj))
+                        if (((b1i + 1) == bi) && ((b1j - 1) == bj))
                         {
                             movement.Add(1);
                         }
                         // Если точка идёт направо
-                        if ((b1i == bi) && ((b1j + 1) == bj))
+                        if ((b1i == bi) && ((b1j - 1) == bj))
                         {
                             movement.Add(0);
                         }
                         // Если точка идёт вниз направо
-                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
+                        if (((b1i - 1) == bi) && ((b1j - 1) == bj))
                         {
                             movement.Add(7);
                         }
                         // Если точка идёт вниз
-                        if (((b1i + 1) == bi) && (b1j == bj))
+                        if (((b1i - 1) == bi) && (b1j == bj))
                         {
                             movement.Add(6);
                             // Будешь проходить мимо.... проходи мимо
                         }
                         // Если точка идёт вниз налево
-                        if (((b1i + 1) == bi) && ((b1j - 1) == bj))
+                        if (((b1i - 1) == bi) && ((b1j + 1) == bj))
                         {
                             movement.Add(5);
                         }
                         // Если точка идёт налево, то она шалава
-                        if ((b1i == bi) && ((b1j - 1) == bj))
+                        if ((b1i == bi) && ((b1j + 1) == bj))
                         {
                             movement.Add(4);
                         }
                         // Если точка идёт налево наверх
-                        if (((b1i - 1) == bi) && ((b1j - 1) == bj))
+                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
                         {
                             movement.Add(3);
                             // Твоему направлению пришщёл конец!
@@ -1151,10 +1385,7 @@ namespace IMPSpace
                         bj = b1j;
                         ci = c1i;
                         cj = c1j;
-                    }
-
-                    // Если точка идёт налево, то она шалава и точка c1 находится теперь внизу
-                    if (WhyAreUGay == 4)
+                    } else if (WhyAreUGay == 4)    // Если точка идёт налево, то она шалава и точка c1 находится теперь внизу
                     {
                         for (int i = 0; i < 8; i++)
                         {
@@ -1234,7 +1465,7 @@ namespace IMPSpace
 
                         //Смотрим куда пошла точка... Спойлер: К твоей мамаше.
                         // Если точка идёт наверх, и точка c1 находится теперь слева
-                        if (((b1i - 1) == bi) && (b1j == bj))
+                        if (((b1i + 1) == bi) && (b1j == bj))
                         {
                             WhyAreUGay = 1;
                             c1i = b1i;
@@ -1245,12 +1476,42 @@ namespace IMPSpace
                             array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
                             array_1_and_0_new[4] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
                             array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
-                            array_1_and_0_new[6] = color_image_matr[b1i + 1, bj];  // точка внизу от b1
-                            array_1_and_0_new[7] = color_image_matr[b1i + 1, bj - 1];  // точка слева внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
+                        }
+                        // Если точка идёт наверх направо, и точка c1 находится теперь слева
+                        if (((b1i + 1) == bi) && ((b1j - 1) == bj))
+                        {
+                            WhyAreUGay = 1;
+                            c1i = b1i;
+                            c1j = b1j - 1;
+                            array_1_and_0_new[0] = color_image_matr[b1i, b1j - 1];  // левая точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
                         }
 
                         // Если точка идёт направо, и точка c1 находится теперь вверху
-                        if ((b1i == bi) && ((b1j + 1) == bj))
+                        if ((b1i == bi) && ((b1j - 1) == bj))
+                        {
+                            WhyAreUGay = 2;
+                            c1i = b1i - 1;
+                            c1j = b1j;
+                            array_1_and_0_new[0] = color_image_matr[b1i - 1, b1j];  // верхняя точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i - 1, b1j + 1];  // точка в правом верхнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i + 1, b1j - 1];  // точка слева внизу от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
+                        }
+                        // Если точка идёт направо вниз, и точка c1 находится теперь вверху
+                        if (((b1i - 1) == bi) && ((b1j - 1) == bj))
                         {
                             WhyAreUGay = 2;
                             c1i = b1i - 1;
@@ -1266,7 +1527,22 @@ namespace IMPSpace
                         }
 
                         // Если точка идёт вниз, и точка c1 находится теперь справа
-                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
+                        if (((b1i - 1) == bi) && (b1j == bj))
+                        {
+                            WhyAreUGay = 3;
+                            c1i = b1i;
+                            c1j = b1j + 1;
+                            array_1_and_0_new[0] = color_image_matr[b1i, b1j + 1];  // правая точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j + 1];  // точка в правом нижнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i + 1, b1j];  // точка внизу от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j - 1];  // точка слева вверху от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
+                        }
+                        // Если точка идёт вниз налево, и точка c1 находится теперь справа
+                        if (((b1i - 1) == bi) && ((b1j + 1) == bj))
                         {
                             WhyAreUGay = 3;
                             c1i = b1i;
@@ -1282,7 +1558,22 @@ namespace IMPSpace
                         }
 
                         // Если точка идёт налево, то она шалава и точка c1 находится теперь внизу
-                        if ((b1i == bi) && ((b1j - 1) == bj))
+                        if ((b1i == bi) && ((b1j + 1) == bj))
+                        {
+                            WhyAreUGay = 4;
+                            c1i = b1i + 1;
+                            c1j = b1j;
+                            array_1_and_0_new[0] = color_image_matr[b1i + 1, b1j];  // нижняя точка c1 от b1 
+                            array_1_and_0_new[1] = color_image_matr[b1i + 1, b1j - 1];  // точка в левом нижнем углу от b1
+                            array_1_and_0_new[2] = color_image_matr[b1i, b1j - 1];  // точка слева от b1
+                            array_1_and_0_new[3] = color_image_matr[b1i - 1, b1j - 1];  // точка в левом верхнем углу от b1
+                            array_1_and_0_new[4] = color_image_matr[b1i - 1, b1j];  // точка вверху от b1
+                            array_1_and_0_new[5] = color_image_matr[b1i - 1, b1j + 1];  // точка справа вверху от b1
+                            array_1_and_0_new[6] = color_image_matr[b1i, b1j + 1];  // точка справа от b1
+                            array_1_and_0_new[7] = color_image_matr[b1i + 1, b1j + 1];  // точка справа внизу от b1
+                        }
+                        // Если точка идёт налево вверх, и точка c1 находится теперь внизу
+                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
                         {
                             WhyAreUGay = 4;
                             c1i = b1i + 1;
@@ -1299,43 +1590,43 @@ namespace IMPSpace
 
                         // Добавляем в массив путей значение.
                         // Если точка идёт наверх 
-                        if (((b1i - 1) == bi) && (b1j == bj))
+                        if (((b1i + 1) == bi) && (b1j == bj))
                         {
                             movement.Add(2);
                         }
                         // Если точка идёт наверх направо
-                        if (((b1i - 1) == bi) && ((b1j + 1) == bj))
+                        if (((b1i + 1) == bi) && ((b1j - 1) == bj))
                         {
                             movement.Add(1);
                         }
                         // Если точка идёт направо
-                        if ((b1i == bi) && ((b1j + 1) == bj))
+                        if ((b1i == bi) && ((b1j - 1) == bj))
                         {
                             movement.Add(0);
                         }
                         // Если точка идёт вниз направо
-                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
+                        if (((b1i - 1) == bi) && ((b1j - 1) == bj))
                         {
                             movement.Add(7);
                         }
                         // Если точка идёт вниз
-                        if (((b1i + 1) == bi) && (b1j == bj))
+                        if (((b1i - 1) == bi) && (b1j == bj))
                         {
                             movement.Add(6);
                             // Будешь проходить мимо.... проходи мимо
                         }
                         // Если точка идёт вниз налево
-                        if (((b1i + 1) == bi) && ((b1j - 1) == bj))
+                        if (((b1i - 1) == bi) && ((b1j + 1) == bj))
                         {
                             movement.Add(5);
                         }
                         // Если точка идёт налево, то она шалава
-                        if ((b1i == bi) && ((b1j - 1) == bj))
+                        if ((b1i == bi) && ((b1j + 1) == bj))
                         {
                             movement.Add(4);
                         }
                         // Если точка идёт налево наверх
-                        if (((b1i - 1) == bi) && ((b1j - 1) == bj))
+                        if (((b1i + 1) == bi) && ((b1j + 1) == bj))
                         {
                             movement.Add(3);
                             // Твоему направлению пришщёл конец!
@@ -1349,7 +1640,9 @@ namespace IMPSpace
 
                     int k = 5;
 
-                } while ((bi != b0iRemember) && (bj != b0jRemember));
+                } while ((bi != b0iRemember) || (bj != b0jRemember));
+
+                int l = 10;
                 /*
                   2. 
                     Пусть b = b1 и c = c.
