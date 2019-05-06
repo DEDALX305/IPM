@@ -1888,6 +1888,87 @@ namespace IMPSpace
                 return movement;
             }
 
+            public Bitmap Detransformation(List<int> NumChain)
+            {
+                Bitmap bitmap = new Bitmap(50, 50);
+
+
+                for (int i = 0; i < bitmap.Width; i++)
+                {
+                    for (int j = 0; j < bitmap.Height; j++)
+                    {
+                        bitmap.SetPixel(i, j, Color.White);
+                    }
+                }
+
+                int x = 2, y = 10;
+                foreach (int Num in NumChain)
+                {
+                    switch (Num)
+                    {
+                        case 1:
+                            x++;
+                            y--;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            break;
+                        case 2:
+                            y--;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            break;
+                        case 3:
+                            x--;
+                            y--;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            break;
+                        case 4:
+                            x--;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            break;
+                        case 5:
+                            x--;
+                            y++;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            break;
+                        case 6:
+                            y++;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            break;
+                        case 7:
+                            x++;
+                            y++;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            break;
+                        case 0:
+                            x++;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            break;
+                        default:
+                            Console.WriteLine("Default case");
+                            break;
+                    }
+                }
+
+                Bitmap bitbox = new Bitmap(500, 500);
+
+                for (int i = 0; i < bitmap.Width; i++)
+                {
+                    for (int j = 0; j < bitmap.Height; j++)
+                    {
+
+                        Color clr = bitmap.GetPixel(i, j);
+
+                        for (int k = i * 10; k < (i + 1) * 10; k++)
+                        {
+                            for (int m = j * 10; m < (j + 1) * 10; m++)
+                            {
+                                bitbox.SetPixel(k, m, clr);
+                            }
+                        }
+                    }
+                }
+
+                return bitbox;
+            }
 
             // Его смерть была лишь необходимой жертвой
             ~chain()
@@ -1896,9 +1977,9 @@ namespace IMPSpace
             }
         }
 
-            class binarization
+        class binarization
         {
-            public System.Drawing.Bitmap BitmapToBlackWhite2(System.Drawing.Bitmap src)
+            public Bitmap BitmapToBlackWhite2(Bitmap src)
             {
                 // 1.
                 double treshold = 0.6;
@@ -1924,6 +2005,30 @@ namespace IMPSpace
 
                 return dst;
             }
+            public Bitmap bigBit(Bitmap src)
+            {
+
+                Bitmap bitbox = new Bitmap(500, 500);
+
+                for (int i = 0; i < src.Width; i++)
+                {
+                    for (int j = 0; j < src.Height; j++)
+                    {
+
+                        Color clr = src.GetPixel(i, j);
+
+                        for (int k = i * 20; k < (i + 1) * 20; k++)
+                        {
+                            for (int m = j * 20; m < (j + 1) * 20; m++)
+                            {
+                                bitbox.SetPixel(k, m, clr);
+                            }
+                        }
+                    }
+                }
+                return bitbox;
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -1934,6 +2039,7 @@ namespace IMPSpace
             binarization binar = new binarization();
 
             pictureBox2.Image = (Image)binar.BitmapToBlackWhite2(BitmapBinarization);
+            
         } // Бинаризация
 
         private void button2_Click(object sender, EventArgs e)
@@ -1972,6 +2078,26 @@ namespace IMPSpace
         {
             pictureBox3.Image = null;
             richTextBox1.Text = null;
+            pictureBox1.Image = null;
+
+            chain obj_chain = new chain();
+            binarization binar = new binarization();
+
+            pictureBox1.Image = (Image)binar.bigBit(BitmapPicture1);
+
+            bitNew = binar.BitmapToBlackWhite2(BitmapBinarization);
+            List<int> List_chain = obj_chain.transformation(bitNew);
+
+            for (int i = 0; i < List_chain.Count; i++)
+            {
+                richTextBox1.Text += List_chain[i].ToString(); // + Environment.NewLine;  + "\r\n"
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            pictureBox3.Image = null;
+            richTextBox1.Text = null;
 
             chain obj_chain = new chain();
             binarization binar = new binarization();
@@ -1983,6 +2109,7 @@ namespace IMPSpace
             {
                 richTextBox1.Text += List_chain[i].ToString(); // + Environment.NewLine;  + "\r\n"
             }
+            pictureBox3.Image = obj_chain.Detransformation(List_chain);
         }
     }
 }
