@@ -1901,7 +1901,7 @@ namespace IMPSpace
                     }
                 }
 
-                int x = 2, y = 10;
+                int x = 4, y = 10;
                 foreach (int Num in NumChain)
                 {
                     switch (Num)
@@ -1910,37 +1910,87 @@ namespace IMPSpace
                             x++;
                             y--;
                             bitmap.SetPixel(x, y, Color.Black);
+                            x--;
+                            x--;
+                            y--;
+                            //y--;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            x++;
+                            y++;
+                            x++;
+                            //y++;
                             break;
                         case 2:
                             y--;
                             bitmap.SetPixel(x, y, Color.Black);
+                            x--;
+                            x--;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            x++;
+                            x++;
                             break;
                         case 3:
                             x--;
                             y--;
                             bitmap.SetPixel(x, y, Color.Black);
+                            y++;
+                            y++;
+                            x--;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            y--;
+                            y--;
+                            x++;
                             break;
                         case 4:
                             x--;
                             bitmap.SetPixel(x, y, Color.Black);
+                            y++;
+                            y++;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            y--;
+                            y--;
                             break;
                         case 5:
                             x--;
                             y++;
                             bitmap.SetPixel(x, y, Color.Black);
+                            x++;
+                            x++;
+                            y++;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            x--;
+                            x--;
+                            y--;
                             break;
                         case 6:
                             y++;
                             bitmap.SetPixel(x, y, Color.Black);
+                            x++;
+                            x++;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            x--;
+                            x--;
                             break;
                         case 7:
                             x++;
                             y++;
                             bitmap.SetPixel(x, y, Color.Black);
+                            x++;
+                            x++;
+                            //y++;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            x--;
+                            x--;
+                            //y--;
                             break;
                         case 0:
                             x++;
                             bitmap.SetPixel(x, y, Color.Black);
+                            y--;
+                            y--;
+                            bitmap.SetPixel(x, y, Color.Black);
+                            y++;
+                            y++;
                             break;
                         default:
                             Console.WriteLine("Default case");
