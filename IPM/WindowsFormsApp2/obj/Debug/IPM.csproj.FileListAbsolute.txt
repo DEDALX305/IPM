@@ -128,3 +128,4 @@ C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Debug\IPM.csproj.Co
 C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Debug\IPM.csproj.CopyComplete
 C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Debug\IMP.exe
 C:\Users\ALPHA\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Debug\IMP.pdb
+C:\Users\DEDALX305\Documents\GitHub\IPM\IPM\WindowsFormsApp2\obj\Debug\IMPSpace.Form5.resources
